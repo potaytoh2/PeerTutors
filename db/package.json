@@ -1,0 +1,44 @@
+{
+  "name": "db",
+  "version": "0.0.1",
+  "description": "Awesome project developed with TypeORM.",
+  "devDependencies": {
+    "@types/node": "^18.13.0",
+    "@types/jest": "^29.4.0",
+    "ts-node": "^10.9.1",
+    "typescript": "4.5.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mysql": "^2.14.1",
+    "mysql2": "^2.3.3",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "0.3.11",
+    "uuid": "^8.3.2"
+  },
+  "scripts": {
+    "start-dummy-server": "ts-node src/dummy-server.ts",
+    "typeorm": "typeorm-ts-node-commonjs",
+    "typeorm:create": "typeorm-ts-node-commonjs migration:create",
+    "typeorm:run": "typeorm-ts-node-commonjs -d ./ormconfig.ts migration:run",
+    "typeorm:revert": "typeorm-ts-node-commonjs -d ./ormconfig.ts migration:revert",
+    "test": "jest --runInBand --setupFiles dotenv/config --config ./test/jest-e2e.json",
+    "seed": "npx --max_old_space_size=1024 ts-node -r dotenv/config ./seed/seedHgxTraders.ts"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
+}
