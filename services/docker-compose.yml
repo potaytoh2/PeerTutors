@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+ 
+  mysqldb:
+    image: mysql:5.7
+    platform: linux/x86_64
+    container_name: mysqldb
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: peer_tutor
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    ports:
+      - 8080:80
+    environment:
+      PMA_HOST: mysqldb
+      PMA_PORT: 3306
+
+  
+
+ 
+    
+
