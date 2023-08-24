@@ -18,13 +18,11 @@
     "uuid": "^8.3.2"
   },
   "scripts": {
-    "start-dummy-server": "ts-node src/dummy-server.ts",
     "typeorm": "typeorm-ts-node-commonjs",
     "typeorm:create": "typeorm-ts-node-commonjs migration:create",
     "typeorm:run": "typeorm-ts-node-commonjs -d ./ormconfig.ts migration:run",
     "typeorm:revert": "typeorm-ts-node-commonjs -d ./ormconfig.ts migration:revert",
-    "test": "jest --runInBand --setupFiles dotenv/config --config ./test/jest-e2e.json",
-    "seed": "npx --max_old_space_size=1024 ts-node -r dotenv/config ./seed/seedHgxTraders.ts"
+    "test": "jest --runInBand --setupFiles dotenv/config --config ./test/jest-e2e.json"
   },
   "jest": {
     "moduleFileExtensions": [

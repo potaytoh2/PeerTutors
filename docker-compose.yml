@@ -23,17 +23,15 @@ services:
 
   db-services-migrations-db:
     extends:
-      file: ./../service/services-monolith/infra-local/backend.yml
+      file: ./backend/infra-local/backend.yml
       service: migrations
-    env_file:
-      - ./env/services-monolith-db-migrations.env
     ports:
       - 8191:3000
     depends_on:
       - phpmyadmin
     volumes:
-      - ./../service/services-monolith/db/src:/app/src
-      - ./../service/services-monolith/db/package.json:/app/package.json
+      - ./backend/db/src:/app/src
+      - ./backend/db/package.json:/app/package.json
 
   
 
