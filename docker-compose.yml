@@ -21,6 +21,20 @@ services:
       PMA_HOST: mysqldb
       PMA_PORT: 3306
 
+  db-services-migrations-db:
+    extends:
+      file: ./../service/services-monolith/infra-local/backend.yml
+      service: migrations
+    env_file:
+      - ./env/services-monolith-db-migrations.env
+    ports:
+      - 8191:3000
+    depends_on:
+      - phpmyadmin
+    volumes:
+      - ./../service/services-monolith/db/src:/app/src
+      - ./../service/services-monolith/db/package.json:/app/package.json
+
   
 
  

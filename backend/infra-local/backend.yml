@@ -1,0 +1,19 @@
+services:
+  app:
+    build:
+      context: ./../services
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./../services/src:/services/src
+    restart: always
+    command: npm run start:dev
+
+  migrations:
+    build:
+      context: ./../db
+      dockerfile: ./Dockerfile
+    # uncomment below if container need to keep alive but need to `npm run typeorm:run` manually
+    # command: "tail -f /dev/null"
+    volumes:
+      - ./../db/src:/app/src
+      - ./../db/package.json:/app/package.json
