@@ -2,17 +2,15 @@ import {
   MigrationInterface,
   QueryRunner,
   Table,
-  TableExclusion,
   TableForeignKey,
 } from 'typeorm';
 
-export class addUserTable1692881180159 implements MigrationInterface {
+export class addInstituteAdminTable1692973651216 implements MigrationInterface {
   tableName: string;
   constructor() {
-    this.tableName = 'user';
+    this.tableName = 'institute_admin';
   }
   public async up(queryRunner: QueryRunner): Promise<void> {
-    // create `trd_trader` table
     await queryRunner.createTable(
       new Table({
         name: this.tableName,
@@ -25,32 +23,7 @@ export class addUserTable1692881180159 implements MigrationInterface {
             generationStrategy: 'uuid',
           },
           {
-            name: 'email',
-            type: 'varchar(50)',
-            isUnique: true,
-            isNullable: false,
-          },
-          {
-            name: 'name',
-            type: 'varchar(50)',
-            isNullable: false,
-          },
-          {
-            name: 'gender',
-            type: 'enum',
-            enum: ['Male', 'Female', 'Non-binary'],
-            enumName: 'userGender',
-            isNullable: false,
-          },
-          {
-            name: 'account_type',
-            type: 'enum',
-            enum: ['student', 'tutor', 'admin'],
-            enumName: 'userRole',
-            isNullable: false,
-          },
-          {
-            name: 'institute_id',
+            name: 'user_id',
             type: 'varchar',
             length: '36',
             isUnique: true,
@@ -84,9 +57,9 @@ export class addUserTable1692881180159 implements MigrationInterface {
     await queryRunner.createForeignKey(
       this.tableName,
       new TableForeignKey({
-        columnNames: ['institute_id'],
+        columnNames: ['user_id'],
         referencedColumnNames: ['id'],
-        referencedTableName: 'institute',
+        referencedTableName: 'user',
         onDelete: 'CASCADE',
       }),
     );
