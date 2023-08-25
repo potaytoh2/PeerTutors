@@ -5,11 +5,10 @@ import {
   TableForeignKey,
 } from 'typeorm';
 
-export class addTutorTable1692883455446 implements MigrationInterface {
+export class addTransactionTable1692981290033 implements MigrationInterface {
   tableName: string;
-
   constructor() {
-    this.tableName = 'tutor';
+    this.tableName = 'transaction';
   }
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
@@ -24,22 +23,47 @@ export class addTutorTable1692883455446 implements MigrationInterface {
             generationStrategy: 'uuid',
           },
           {
-            name: 'user_id',
+            name: 'tutor_id',
             type: 'varchar',
             length: '36',
             isUnique: true,
             isNullable: false,
           },
           {
-            name: 'tutor_rating',
-            type: 'float',
-            isNullable: true,
+            name: 'student_id',
+            type: 'varchar',
+            length: '36',
+            isUnique: true,
+            isNullable: false,
           },
           {
-            name: 'tutor_tier',
-            type: 'enum',
-            enum: ['bronze', 'silver', 'gold'],
-            enumName: 'tutorTier',
+            name: 'module_id',
+            type: 'varchar',
+            length: '36',
+            isUnique: true,
+            isNullable: false,
+          },
+          {
+            name: 'request_id',
+            type: 'varchar',
+            length: '36',
+            isUnique: true,
+            isNullable: false,
+          },
+          {
+            name: 'amount',
+            type: 'float',
+            isNullable: false,
+          },
+          {
+            name: 'isVerified',
+            type: 'boolean',
+            isNullable: false,
+          },
+          {
+            name: 'verification_comments',
+            type: 'varchar',
+            length: '50',
             isNullable: true,
           },
           {
@@ -70,9 +94,36 @@ export class addTutorTable1692883455446 implements MigrationInterface {
     await queryRunner.createForeignKey(
       this.tableName,
       new TableForeignKey({
-        columnNames: ['user_id'],
+        columnNames: ['request_id'],
         referencedColumnNames: ['id'],
-        referencedTableName: 'user',
+        referencedTableName: 'tutoring_request',
+        onDelete: 'CASCADE',
+      }),
+    );
+    await queryRunner.createForeignKey(
+      this.tableName,
+      new TableForeignKey({
+        columnNames: ['student_id'],
+        referencedColumnNames: ['id'],
+        referencedTableName: 'student',
+        onDelete: 'CASCADE',
+      }),
+    );
+    await queryRunner.createForeignKey(
+      this.tableName,
+      new TableForeignKey({
+        columnNames: ['module_id'],
+        referencedColumnNames: ['id'],
+        referencedTableName: 'module',
+        onDelete: 'CASCADE',
+      }),
+    );
+    await queryRunner.createForeignKey(
+      this.tableName,
+      new TableForeignKey({
+        columnNames: ['tutor_id'],
+        referencedColumnNames: ['id'],
+        referencedTableName: 'tutor',
         onDelete: 'CASCADE',
       }),
     );

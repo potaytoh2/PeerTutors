@@ -1,15 +1,10 @@
-import {
-  MigrationInterface,
-  QueryRunner,
-  Table,
-  TableForeignKey,
-} from 'typeorm';
+import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class addTutorTable1692883455446 implements MigrationInterface {
+export class addInstituteTable1692881180111 implements MigrationInterface {
   tableName: string;
 
   constructor() {
-    this.tableName = 'tutor';
+    this.tableName = 'institute';
   }
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
@@ -24,23 +19,11 @@ export class addTutorTable1692883455446 implements MigrationInterface {
             generationStrategy: 'uuid',
           },
           {
-            name: 'user_id',
+            name: 'name',
             type: 'varchar',
-            length: '36',
+            length: '50',
             isUnique: true,
             isNullable: false,
-          },
-          {
-            name: 'tutor_rating',
-            type: 'float',
-            isNullable: true,
-          },
-          {
-            name: 'tutor_tier',
-            type: 'enum',
-            enum: ['bronze', 'silver', 'gold'],
-            enumName: 'tutorTier',
-            isNullable: true,
           },
           {
             name: 'created_at',
@@ -67,29 +50,9 @@ export class addTutorTable1692883455446 implements MigrationInterface {
         ],
       }),
     );
-    await queryRunner.createForeignKey(
-      this.tableName,
-      new TableForeignKey({
-        columnNames: ['user_id'],
-        referencedColumnNames: ['id'],
-        referencedTableName: 'user',
-        onDelete: 'CASCADE',
-      }),
-    );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    const table = await queryRunner.getTable(this.tableName);
-
-    // Delete all foreign keys
-    if (table) {
-      await Promise.all(
-        table.foreignKeys.map(async (foreignKey) => {
-          await queryRunner.dropForeignKey(table, foreignKey);
-        }),
-      );
-    }
-
     await queryRunner.dropTable(this.tableName);
   }
 }

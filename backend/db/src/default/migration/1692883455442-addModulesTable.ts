@@ -1,18 +1,12 @@
-import {
-  MigrationInterface,
-  QueryRunner,
-  Table,
-  TableExclusion,
-  TableForeignKey,
-} from 'typeorm';
+import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class addUserTable1692881180159 implements MigrationInterface {
+export class addModulesTable1692883455442 implements MigrationInterface {
   tableName: string;
+
   constructor() {
-    this.tableName = 'user';
+    this.tableName = 'module';
   }
   public async up(queryRunner: QueryRunner): Promise<void> {
-    // create `trd_trader` table
     await queryRunner.createTable(
       new Table({
         name: this.tableName,
@@ -25,36 +19,22 @@ export class addUserTable1692881180159 implements MigrationInterface {
             generationStrategy: 'uuid',
           },
           {
-            name: 'email',
-            type: 'varchar(50)',
+            name: 'module_code',
+            type: 'varchar',
+            length: '36',
             isUnique: true,
             isNullable: false,
           },
           {
             name: 'name',
-            type: 'varchar(50)',
-            isNullable: false,
-          },
-          {
-            name: 'gender',
-            type: 'enum',
-            enum: ['Male', 'Female', 'Non-binary'],
-            enumName: 'userGender',
-            isNullable: false,
-          },
-          {
-            name: 'account_type',
-            type: 'enum',
-            enum: ['student', 'tutor', 'admin'],
-            enumName: 'userRole',
-            isNullable: false,
-          },
-          {
-            name: 'institute_id',
             type: 'varchar',
-            length: '36',
-            isUnique: true,
+            length: '50',
             isNullable: false,
+          },
+          {
+            name: 'base_pay',
+            type: 'float',
+            isNullable: true,
           },
           {
             name: 'created_at',
@@ -81,18 +61,9 @@ export class addUserTable1692881180159 implements MigrationInterface {
         ],
       }),
     );
-    await queryRunner.createForeignKey(
-      this.tableName,
-      new TableForeignKey({
-        columnNames: ['institute_id'],
-        referencedColumnNames: ['id'],
-        referencedTableName: 'institute',
-        onDelete: 'CASCADE',
-      }),
-    );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('user');
+    await queryRunner.dropTable(this.tableName);
   }
 }
