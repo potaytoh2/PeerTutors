@@ -1,10 +1,10 @@
-//node index.js exposes the api endpoint localhost:3001 to listen for GET requests in the format localhost:3001/image/:imageName, 
-//and returns a live link to the image from the Firebase cloud storage
 const { initializeApp } = require("firebase/app");
-const moment = require('moment'); 
+const { v4: uuidv4 } = require('uuid'); 
 const express = require('express');
 const cors = require('cors');
 const admin = require('firebase-admin');
+const moment = require('moment'); 
+
 const serviceAccount = require('./test-9b595-firebase-adminsdk-7ymkd-ecb373ac69.json'); // Replace with your Firebase service account key
 
 const firebaseConfig = {
@@ -21,26 +21,15 @@ admin.initializeApp({
   storageBucket: "test-9b595.appspot.com" // Replace with your Firebase Storage bucket URL
 });
 
-const app1 = express();
-app1.use(cors());
-app1.use(express.json()); 
-
+//get your bucket
 var bucket = admin.storage().bucket();
 
-app1.get('/file', async (req, res) => {
-  const imageName = req.body.filename;
-  const [files] = await bucket.getFiles();
+const app1 = express();
 
-  const matchingFile = files.find(file => file.name === imageName);
-  // console.log(matchingFile);
-  if (matchingFile) {
-    const imageUrl = `https://firebasestorage.googleapis.com/v0/b/${bucket.name}/o/${encodeURIComponent(matchingFile.name)}?alt=media&token=${matchingFile.metadata.metadata.firebaseStorageDownloadTokens}`;
-    // console.log(imageUrl);
-    res.json({ imageUrl });
-  } else {
-    res.status(404).json({ error: 'Image not found' });
-  }
-});
+app1.use(cors());
+app1.use(express.json()); 
+// filepath = "/Users/someone/Documents/GitHub/PeerTutors/backend/ServerStorage";
+// filename = "file_example_MP3_700KB.mp3";
 
 app1.post('/upload', async (req, res) => {
 
@@ -56,7 +45,7 @@ app1.post('/upload', async (req, res) => {
     const timestamp = moment().format('YYYYMMDD_HHmmss'); 
     const uniqueFilename = `${user}${timestamp}.${fileExtension}`;
     
-    // console.log(filepath + filename);
+    console.log(filepath + filename);
     await bucket.upload(filepath + filename, {
       gzip: true,
       destination: uniqueFilename,
@@ -74,7 +63,8 @@ app1.post('/upload', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3001;
+
+const PORT = process.env.PORT || 3002;
 app1.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
