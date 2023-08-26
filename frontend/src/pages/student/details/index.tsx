@@ -50,11 +50,10 @@ const Index = () => {
               </h2>
               <h2 className="text-3xl font-bold pb-4">5:30pm-7:30pm</h2>
               <h2 className='pt-2'>Location: Aperium Mall, Serangoon North Ave 5</h2>
-              <h2 className='pt-2'>Expected Pay: $15/h</h2>
               <h2 className='pt-2'>Session Goal: To achieve A in my computer science mod because this is stupid</h2>
             </div>
             <div className="w-1/3 rounded p-4 bg-gray-200">
-              <h2 className="text-2xl font-bold">Student Info</h2>
+              <h2 className="text-2xl font-bold">Tutor Info</h2>
               <h3 className="text-4xl font-bold text-gray-900">{parsedData}</h3>
               <div className="">
                 <h3 className='pt-2'>Email: sagondese.gmail.com</h3>
@@ -71,11 +70,11 @@ const Index = () => {
               </Button>
             </div>
             <div className="w-1/2 flex justify-end items-end">
-              <Link href="./details/start">
-              <Button classProps="mt-2">
-                Start Session
+              {/* <Link href="./details/start"> */}
+              <Button classProps="mt-2" onClick={() => window.alert("next time bah")}>
+                Edit Session
               </Button>
-              </Link>
+              {/* </Link> */}
               <Button classProps="mt-2 ml-2 btn-secondary" onClick={() => router.back()}>
                 Cancel Session
               </Button>

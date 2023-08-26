@@ -15,16 +15,16 @@ type DetailsRowProps = {
   reverse?: boolean;
 };
 
-const UpcomingDetailsRow = (props: DetailsRowProps) => {
+const HistoryDetailsRow = (props: DetailsRowProps) => {
 
   const handleChat = () => {
     // setEvents([]);
     window.alert('Chatting with ...');
   };
 
-  const handleReject = () => {
+  const handleReview = () => {
     // setEvents([]);
-    window.alert('Rejected with ...');
+    window.alert('Review with ...');
   };
 
   const handleSubmit = () => {
@@ -61,30 +61,30 @@ const UpcomingDetailsRow = (props: DetailsRowProps) => {
   return (
     <div>
     {/* <Link href="" onClick={gotoDetails}> */}
-    <Link href={{ pathname: './details', query: { id: props.name } }} passHref>
+    {/* <Link href={{ pathname: './details', query: { id: props.name } }} passHref> */}
     <div className={featureClass}>
-        <div className="w-full text-center sm:w-2/6 sm:px-6 py-4">
+        <div className="w-full text-center sm:w-1/4 sm:px-6 py-4">
           <h3 className="text-3xl font-semibold text-gray-900">{props.date}</h3>
           <h3 className="text-xl leading-9">{props.time}</h3>
         </div>
 
-        <div className="w-full text-center sm:w-1/6 sm:px-6 py-4">
+        <div className="w-full text-center sm:w-1/4 sm:px-6 py-4">
           <h3 className="text-2xl font-semibold text-gray-900">{props.name}</h3>
           {/* <div className="text-xl leading-9">{props.desc}</div> */}
         </div>
 
-        <div className="w-full text-center p-6 sm:w-2/6">
+        <div className="w-full text-center p-6 sm:w-1/4">
           <h3 className="text-xl font-semibold text-gray-900">{props.mod}</h3>
         </div>
 
-        <div className="w-full p-6 sm:w-1/6">
+        <div className="w-full p-6 sm:w-1/4">
           <div className='flex space-x-4'>
               {/* <Button onClick={handleSubmit}>
                 Accept
-              </Button>
-              <Button classProps='btn-secondary' onClick={handleReject}>
-                Reject
               </Button> */}
+              <Button classProps='btn-secondary' onClick={handleReview}>
+                Review
+              </Button>
               <Button classProps='btn-secondary' onClick={handleChat}>
                 Chat
               </Button>
@@ -92,9 +92,9 @@ const UpcomingDetailsRow = (props: DetailsRowProps) => {
           {/* <img src={`${router.basePath}${props.image}`} alt={props.imageAlt} /> */}
         </div>
     </div>
-    </Link>
+    {/* </Link> */}
     </div>
   );
 };
 
-export { UpcomingDetailsRow };
+export { HistoryDetailsRow };
