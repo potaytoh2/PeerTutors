@@ -1,4 +1,4 @@
-index.js http
+index.js api endpoints
 
 HTTP POST http://localhost:3001/upload-audio
 body: form-data
