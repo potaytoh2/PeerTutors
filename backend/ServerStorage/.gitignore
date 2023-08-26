@@ -1,8 +1,8 @@
+test-9b595-firebase-adminsdk-7ymkd-ecb373ac69.json
+
 # compiled output
 /dist
 /node_modules
-
-
 
 # Logs
 logs
@@ -35,4 +35,6 @@ lerna-debug.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+.env
 test-9b595-firebase-adminsdk-7ymkd-ecb373ac69.json
