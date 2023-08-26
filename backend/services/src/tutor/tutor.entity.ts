@@ -5,6 +5,7 @@ import {
   Column,
   JoinColumn,
   OneToOne,
+  OneToMany,
 } from 'typeorm';
 import {
   IsBoolean,
@@ -15,6 +16,8 @@ import {
 } from 'class-validator';
 import { User } from 'src/user/user.entity';
 import { TutorTier } from './tutor.enum';
+import { TutorSchedule } from 'src/tutor-schedule/tutor-schedule.entity';
+import { TutorRequest } from 'src/tutor-request/tutor-request.entity';
 
 @Entity('tutor')
 export class Tutor {
@@ -78,4 +81,12 @@ export class Tutor {
   @JoinColumn({ name: 'id' })
   @IsNotEmpty()
   user: User;
+
+  @OneToOne(() => TutorRequest)
+  @JoinColumn({ name: 'id' })
+  @IsNotEmpty()
+  tutorRequest: TutorRequest;
+
+  @OneToMany(() => TutorSchedule, (tutorSchedule) => tutorSchedule.tutor)
+  tutorSchedule: TutorSchedule[];
 }

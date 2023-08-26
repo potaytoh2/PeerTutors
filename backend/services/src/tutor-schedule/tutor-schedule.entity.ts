@@ -1,47 +1,35 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { UserGender, UserAccountType } from 'src/user/user.enum';
 import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
-  ManyToOne,
   JoinColumn,
-  OneToMany,
-  OneToOne,
+  ManyToOne,
 } from 'typeorm';
-import {
-  IsDateString,
-  IsEnum,
-  IsNotEmpty,
-  IsOptional,
-  IsString,
-  IsUUID,
-  MaxLength,
-} from 'class-validator';
-import { User } from 'src/user/user.entity';
-import { TutorRequest } from 'src/tutor-request/tutor-request.entity';
+import { IsNotEmpty, IsOptional, IsUUID } from 'class-validator';
+import { Tutor } from 'src/tutor/tutor.entity';
 
-@Entity('student')
-export class Student {
+@Entity('tutor-schedule')
+export class TutorSchedule {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @ApiProperty({
     example: '17e3e236-aadf-4131-833c-2d9a0031dhse2',
-    description: 'user_id',
+    description: 'tutor id',
   })
   @IsUUID()
   @IsNotEmpty()
   @Column()
-  user_id: string;
+  tutor_id: string;
 
   @ApiProperty({
-    example: '5.0',
-    description: 'Student rating',
+    example: '14/09/2023',
+    description: 'Tutor available date',
   })
-  @IsOptional()
+  @IsNotEmpty()
   @Column()
-  student_rating: number;
+  available_date: Date;
 
   @ApiProperty({
     example: 'ce27b144-4d2f-49cd-99ee-0616140540b1',
@@ -61,13 +49,7 @@ export class Student {
   @Column({ default: null })
   updated_by?: string;
 
-  @OneToOne(() => User)
-  @JoinColumn({ name: 'id' })
-  @IsNotEmpty()
-  user: User;
-
-  @OneToOne(() => TutorRequest)
-  @JoinColumn({ name: 'id' })
-  @IsNotEmpty()
-  tutorRequest: TutorRequest;
+  @ManyToOne(() => Tutor, (tutor) => tutor.tutorSchedule)
+  @JoinColumn({ name: 'tutor_id', referencedColumnName: 'id' })
+  tutor: Tutor;
 }

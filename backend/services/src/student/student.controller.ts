@@ -22,6 +22,7 @@ import { StudentService } from './student.service';
   query: {
     join: {
       user: {},
+      tutorRequest: {},
     },
     limit: 20,
     maxLimit: 50,

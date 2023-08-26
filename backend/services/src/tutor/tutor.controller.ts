@@ -22,6 +22,8 @@ import { TutorService } from './tutor.service';
   query: {
     join: {
       user: {},
+      tutorRequest: {},
+      tutorSchedule: {},
     },
     limit: 20,
     maxLimit: 50,

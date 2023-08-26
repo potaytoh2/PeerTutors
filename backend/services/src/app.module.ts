@@ -11,8 +11,30 @@ import { InstituteAdminModule } from './institute-admin/institute-admin.module';
 import { ModuleModule } from './module/module.module';
 import { StudentModule } from './student/student.module';
 import { TutorModule } from './tutor/tutor.module';
-import { StudentModuleModule } from './student-module/student-module.module';
-const entities = [User, Institute];
+import { InstituteAdmin } from './institute-admin/institute-admin.entity';
+import { ModuleEntity } from './module/module.entity';
+import { Student } from './student/student.entity';
+import { Tutor } from './tutor/tutor.entity';
+import { StudentMod } from './student-mod/student-mod.entity';
+import { StudentModModule } from './student-mod/student-mod.module';
+import { TutorScheduleController } from './tutor-schedule/tutor-schedule.controller';
+import { TutorScheduleService } from './tutor-schedule/tutor-schedule.service';
+import { TutorScheduleModule } from './tutor-schedule/tutor-schedule.module';
+import { TutorSchedule } from './tutor-schedule/tutor-schedule.entity';
+import { TutorRequestModule } from './tutor-request/tutor-request.module';
+import { TutorRequest } from './tutor-request/tutor-request.entity';
+
+const entities = [
+  User,
+  Institute,
+  InstituteAdmin,
+  ModuleEntity,
+  Student,
+  Tutor,
+  StudentMod,
+  TutorSchedule,
+  TutorRequest,
+];
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -29,13 +51,15 @@ const entities = [User, Institute];
     AuthModule,
     UserModule,
     InstituteModule,
-    StudentModuleModule,
     ModuleModule,
     StudentModule,
     TutorModule,
     InstituteAdminModule,
+    StudentModModule,
+    TutorScheduleModule,
+    TutorRequestModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, TutorScheduleController],
+  providers: [AppService, TutorScheduleService],
 })
 export class AppModule {}

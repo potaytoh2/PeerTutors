@@ -1,9 +1,9 @@
 import { Controller } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { Crud, CrudController } from '@nestjsx/crud';
-import {  BaseModuleResponseDto } from './dto/base-module-response.dto';
+import { BaseModuleResponseDto } from './dto/base-module-response.dto';
 import { BaseModuleDto } from './dto/base-module.dto';
-import {  CreateModuleDto } from './dto/create-module.dto';
+import { CreateModuleDto } from './dto/create-module.dto';
 import { UpdateModuleDto } from './dto/update-module.dto';
 import { ModuleEntity } from './module.entity';
 import { ModuleService } from './module.service';
@@ -21,7 +21,8 @@ import { ModuleService } from './module.service';
   },
   query: {
     join: {
-      studentModule: {},
+      studentMod: {},
+      tutorRequest: {},
     },
     limit: 20,
     maxLimit: 50,
