@@ -19,7 +19,7 @@ import {
 } from 'class-validator';
 import { User } from 'src/user/user.entity';
 
-@Entity('user')
+@Entity('institute')
 export class Institute {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -39,7 +39,7 @@ export class Institute {
     description: 'user_id',
   })
   @IsUUID()
-  @IsNotEmpty()
+  @IsOptional()
   @Column()
   user_id: string;
 
@@ -62,6 +62,5 @@ export class Institute {
   updated_by?: string;
 
   @OneToMany(() => User, (user) => user.institute)
-  @JoinColumn({ name: 'user_id' })
   user: User[];
 }

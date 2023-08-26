@@ -3,11 +3,21 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from '@firebase/auth';
-import { auth } from '../../firebaseConfig';
+import { auth } from '../firebaseConfig';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { User } from 'src/user/user.entity';
 
 @Injectable()
 export class AuthService {
-  login(
+  constructor(
+    @InjectRepository(User)
+    private userRepository: Repository<User>,
+    @InjectRepository(Student)
+    private studentRepository: Repository<Student>,
+  ) {}
+
+  async login(
     email: string,
     password: string,
   ): Promise<{ status: number; message: string }> {
@@ -26,7 +36,7 @@ export class AuthService {
     });
   }
 
-  signUp(
+  async signUp(
     email: string,
     password: string,
   ): Promise<{ status: number; message: string }> {

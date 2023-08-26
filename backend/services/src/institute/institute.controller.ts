@@ -1,6 +1,6 @@
 import { Controller } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { Crud } from '@nestjsx/crud';
+import { Crud, CrudController } from '@nestjsx/crud';
 import { BaseInstituteResponseDto } from './dto/base-institute-response.dto';
 import { BaseInstituteDto } from './dto/base-institute.dto';
 import { CreateInstituteDto } from './dto/create-institute.dto';
@@ -42,6 +42,6 @@ import { InstituteService } from './institute.service';
 })
 @ApiTags('Institute')
 @Controller('institute')
-export class InstituteController {
+export class InstituteController implements CrudController<Institute> {
   constructor(public service: InstituteService) {}
 }

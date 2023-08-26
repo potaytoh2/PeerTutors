@@ -26,6 +26,13 @@ export class addInstituteTable1692881180111 implements MigrationInterface {
             isNullable: false,
           },
           {
+            name: 'user_id',
+            type: 'varchar',
+            length: '36',
+            isUnique: true,
+            isNullable: true,
+          },
+          {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()',

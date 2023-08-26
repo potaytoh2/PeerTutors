@@ -43,6 +43,11 @@ export class addTutorTable1692883455446 implements MigrationInterface {
             isNullable: true,
           },
           {
+            name: 'is_verified',
+            type: 'boolean',
+            default: false,
+          },
+          {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()',

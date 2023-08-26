@@ -88,6 +88,6 @@ export class User {
   updated_by?: string;
 
   @ManyToOne(() => Institute, (institute) => institute.user)
-  @JoinColumn({ name: 'id', referencedColumnName: 'institute_id' })
+  @JoinColumn({ name: 'institute_id', referencedColumnName: 'id' })
   institute: Institute;
 }

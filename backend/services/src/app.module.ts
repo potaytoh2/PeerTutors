@@ -11,16 +11,15 @@ import { InstituteController } from './institute/institute.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Institute } from './institute/institute.entity';
 import { User } from './user/user.entity';
-import { ConfigModule } from '@nestjs/config';
+import { UserService } from './user/user.service';
+import { InstituteService } from './institute/institute.service';
+import { AuthService } from './auth/auth.service';
+import { AuthController } from './auth/auth.controller';
+import { StudentModule } from './student/student.module';
 const entities = [User, Institute];
 @Module({
   imports: [
-    AuthModule,
-    UserModule,
-    InstituteModule,
-    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
-      name: 'mysqldb',
       type: 'mysql',
       host: 'mysqldb',
       port: 3306,
@@ -31,8 +30,12 @@ const entities = [User, Institute];
       synchronize: false,
       logging: true,
     }),
+    AuthModule,
+    UserModule,
+    InstituteModule,
+    StudentModule,
   ],
-  controllers: [AppController, UserController, InstituteController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}

@@ -1,5 +1,5 @@
 import { TypeOrmCrudService } from '@nestjsx/crud-typeorm';
-import { CrudRequest, CrudRequestOptions } from '@nestjsx/crud';
+import { CrudRequest } from '@nestjsx/crud';
 import { plainToClass } from 'class-transformer';
 import { DeepPartial } from 'typeorm';
 

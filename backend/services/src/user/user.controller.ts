@@ -1,6 +1,6 @@
 import { Controller } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { Crud } from '@nestjsx/crud';
+import { Crud, CrudController } from '@nestjsx/crud';
 import { BaseUserResponseDto } from './dto/base-user-response.dto';
 import { BaseUserDto } from './dto/base-user.dto';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -42,6 +42,6 @@ import { UserService } from './user.service';
 })
 @ApiTags('User')
 @Controller('user')
-export class UserController {
+export class UserController implements CrudController<User> {
   constructor(public service: UserService) {}
 }
