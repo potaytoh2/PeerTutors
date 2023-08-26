@@ -6,8 +6,6 @@ type IButtonProps = {
   children: string;
   classProps?: string; // Made optional
   onClick?: () => void;
-  onMouseEnter?: () => void; // Step 1: Add onMouseEnter prop
-  onMouseLeave?: () => void;
 };
 
 const Button = (props: IButtonProps) => {
@@ -19,9 +17,7 @@ const Button = (props: IButtonProps) => {
   });
 
   return (
-    <button className={`${props.classProps || ''} ${btnClass}`} onClick={props.onClick} 
-    onMouseEnter={props.onMouseEnter} // Step 2: Apply onMouseEnter prop
-    onMouseLeave={props.onMouseLeave}>
+    <button className={`${props.classProps || ''} ${btnClass}`} onClick={props.onClick}>
       {props.children}
 
       <style jsx>
