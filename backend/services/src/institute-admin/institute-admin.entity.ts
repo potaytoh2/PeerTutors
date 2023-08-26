@@ -17,13 +17,6 @@ export class InstituteAdmin {
   @Column()
   user_id: string;
 
-  @ApiProperty({
-    example: '5.0',
-    description: 'Student rating',
-  })
-  @IsOptional()
-  @Column()
-  student_rating: number;
 
   @ApiProperty({
     example: 'ce27b144-4d2f-49cd-99ee-0616140540b1',

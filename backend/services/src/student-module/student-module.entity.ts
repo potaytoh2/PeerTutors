@@ -1,23 +1,18 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { UserGender, UserAccountType } from 'src/user/user.enum';
 import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
   ManyToOne,
   JoinColumn,
-  OneToMany,
 } from 'typeorm';
 import {
-  IsDateString,
-  IsEnum,
   IsNotEmpty,
   IsOptional,
   IsString,
   IsUUID,
   MaxLength,
 } from 'class-validator';
-import { User } from 'src/user/user.entity';
 import { ModuleEntity } from 'src/module/module.entity';
 
 @Entity('studentModule')

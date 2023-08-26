@@ -9,4 +9,4 @@ import { TutorService } from './tutor.service';
   controllers: [TutorController],
   providers: [TutorService],
 })
-export class UserModule {}
+export class TutorModule {}

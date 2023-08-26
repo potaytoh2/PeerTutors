@@ -7,16 +7,10 @@ import { InstituteModule } from './institute/institute.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Institute } from './institute/institute.entity';
 import { User } from './user/user.entity';
-import { StudentService } from './student/student.service';
-import { StudentController } from './student/student.controller';
-import { StudentModule } from './student/student.module';
-import { TutorService } from './tutor/tutor.service';
-import { TutorController } from './tutor/tutor.controller';
-import { TutorModule } from './tutor/tutor.module';
-import { InstituteAdminController } from './institute-admin/institute-admin.controller';
-import { InstituteAdminService } from './institute-admin/institute-admin.service';
 import { InstituteAdminModule } from './institute-admin/institute-admin.module';
 import { ModuleModule } from './module/module.module';
+import { StudentModule } from './student/student.module';
+import { TutorModule } from './tutor/tutor.module';
 const entities = [User, Institute];
 @Module({
   imports: [
@@ -38,9 +32,8 @@ const entities = [User, Institute];
     StudentModule,
     TutorModule,
     InstituteAdminModule,
-
   ],
-  controllers: [AppController, StudentController, TutorController, InstituteAdminController],
-  providers: [AppService, StudentService, TutorService, InstituteAdminService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}

@@ -1,11 +1,9 @@
 import { PickType } from '@nestjs/swagger';
-import { Student } from '../student.entity';
+import { InstituteAdmin } from '../institute-admin.entity';
 
-
-export class BaseStudentDto extends PickType(Student, [
+export class BaseInstituteAdmintDto extends PickType(InstituteAdmin, [
   'id',
   'user_id',
-  'student_rating',
   'created_by',
-  'updated_by'
+  'updated_by',
 ] as const) {}

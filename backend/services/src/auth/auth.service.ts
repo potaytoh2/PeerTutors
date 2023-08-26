@@ -11,13 +11,6 @@ import { Student } from 'src/student/student.entity';
 
 @Injectable()
 export class AuthService {
-  constructor(
-    @InjectRepository(User)
-    private userRepository: Repository<User>,
-    @InjectRepository(Student)
-    private studentRepository: Repository<Student>,
-  ) {}
-
   async login(
     email: string,
     password: string,

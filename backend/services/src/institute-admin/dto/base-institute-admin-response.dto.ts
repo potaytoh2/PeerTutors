@@ -1,3 +1,3 @@
-import { BaseStudentDto } from './base-institute-admin.dto';
+import { BaseInstituteAdmintDto } from './base-institute-admin.dto';
 
-export class BaseStudentResponseDto extends BaseStudentDto {}
+export class BaseInstituteAdminResponseDto extends BaseInstituteAdmintDto {}

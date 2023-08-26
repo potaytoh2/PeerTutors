@@ -7,6 +7,7 @@ import {
   IsUUID,
   MaxLength,
 } from 'class-validator';
+import { InstituteAdmin } from 'src/institute-admin/institute-admin.entity';
 import { Institute } from 'src/institute/institute.entity';
 import { Student } from 'src/student/student.entity';
 import { Tutor } from 'src/tutor/tutor.entity';
@@ -99,6 +100,11 @@ export class User {
   @JoinColumn({ referencedColumnName: 'user_id', name: 'id' })
   @IsNotEmpty()
   tutor: Tutor;
+
+  @OneToOne(() => InstituteAdmin)
+  @JoinColumn({ referencedColumnName: 'user_id', name: 'id' })
+  @IsNotEmpty()
+  instituteAdmin: InstituteAdmin;
 
   @ManyToOne(() => Institute, (institute) => institute.user)
   @JoinColumn({ name: 'institute_id', referencedColumnName: 'id' })
