@@ -1,4 +1,3 @@
-import { CollectionResponseMarketingEventExternalUniqueIdentifierNoPaging } from '@hubspot/api-client/lib/codegen/marketing/events';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import React, {useState} from 'react'
