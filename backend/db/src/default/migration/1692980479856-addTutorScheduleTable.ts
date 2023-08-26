@@ -30,7 +30,7 @@ export class addTutorScheduleTable1692980479856 implements MigrationInterface {
             name: 'tutor_id',
             type: 'varchar',
             length: '36',
-            isUnique: true,
+            isUnique: false,
             isNullable: false,
           },
           {

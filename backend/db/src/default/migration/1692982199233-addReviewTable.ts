@@ -33,14 +33,14 @@ export class addReviewTable1692982199233 implements MigrationInterface {
             name: 'student_id',
             type: 'varchar',
             length: '36',
-            isUnique: true,
+            isUnique: false,
             isNullable: false,
           },
           {
             name: 'tutor_id',
             type: 'varchar',
             length: '36',
-            isUnique: true,
+            isUnique: false,
             isNullable: false,
           },
           {

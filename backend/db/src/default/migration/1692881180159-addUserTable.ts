@@ -54,7 +54,7 @@ export class addUserTable1692881180159 implements MigrationInterface {
             name: 'institute_id',
             type: 'varchar',
             length: '36',
-            isUnique: true,
+            isUnique: false,
             isNullable: false,
           },
           {

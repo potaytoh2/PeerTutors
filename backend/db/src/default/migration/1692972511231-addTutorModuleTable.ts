@@ -27,14 +27,14 @@ export class addTutorModuleTable1692972511231 implements MigrationInterface {
             name: 'tutor_id',
             type: 'varchar',
             length: '36',
-            isUnique: true,
+            isUnique: false,
             isNullable: false,
           },
           {
             name: 'module_id',
             type: 'varchar',
             length: '36',
-            isUnique: true,
+            isUnique: false,
             isNullable: false,
           },
           {
