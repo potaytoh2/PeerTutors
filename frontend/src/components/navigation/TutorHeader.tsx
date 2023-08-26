@@ -1,7 +1,9 @@
-import { CollectionResponseMarketingEventExternalUniqueIdentifierNoPaging } from '@hubspot/api-client/lib/codegen/marketing/events';
+"use client"
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import React, {useState} from 'react'
+import dropdownlist from './MyAccount/dropdownlist.json';
+import {Button} from '../button/Button'
 
 type TutorHeaderProps = {
   logo: ReactNode;
@@ -9,40 +11,11 @@ type TutorHeaderProps = {
 
 function TutorHeader({logo}: TutorHeaderProps){
   const [dropdownOpen, setdropdownOpen] = useState(false);
+  const handleToggleDropdown = () => {
+    setdropdownOpen(prev => !prev); // Toggle the value using the previous value
+  };
 
-  const handleChange = () =>{
-    setdropdownOpen(!dropdownOpen);
-  }
-
-  const MenuDisplay = () =>{
-    if(dropdownOpen){
-      return(
-        <div className="top-full opacity-100 visible">
-          <Link href="/"
-              className="block py-2 px-5 text-base font-semibold text-body-color hover:bg-primary hover:bg-opacity-5 hover:text-primary">
-              Dashboard
-          </Link>
-          <Link href="/"
-              className="block py-2 px-5 text-base font-semibold text-body-color hover:bg-primary hover:bg-opacity-5 hover:text-primary">
-              Settings
-          </Link>
-          <Link href="/"
-              className="block py-2 px-5 text-base font-semibold text-body-color hover:bg-primary hover:bg-opacity-5 hover:text-primary">
-              Earnings
-          </Link>
-          <Link href="/"
-              className="block py-2 px-5 text-base font-semibold text-body-color hover:bg-primary hover:bg-opacity-5 hover:text-primary">
-              Logout
-          </Link>
-        </div>
-      )
-    }else{
-      return (
-        <div>My Account</div>
-      )
-    }
-  }
-
+  {console.log(dropdownOpen)}
   return(
   <div className="flex flex-wrap items-center justify-between">
       <div>
@@ -68,12 +41,26 @@ function TutorHeader({logo}: TutorHeaderProps){
                   <Link href="/">View Messages</Link>
               </li>
               <li>
-                <button onClick={()=>{handleChange}}> 
-                {MenuDisplay()}
-                </button>
+              <Button onClick={handleToggleDropdown}>
+                My Account
+              </Button>
+              {dropdownOpen && 
+                <div className='absolute overflow-hidden'>
+                  <ul>
+                  {dropdownlist.map((item)=>(
+                    <li key={item.page} 
+                    className="px-4 py-2 hover:bg-primary-300 bg-primary-100 cursor-pointer min-w-full max-w-md">
+                      <h3>{item.page}</h3>
+                    </li>
+                  ))}
+                  </ul>
+                </div>
+                }
               </li>
           </ul>
         </nav>
+        
+                
       </div>
 
       <style jsx>
