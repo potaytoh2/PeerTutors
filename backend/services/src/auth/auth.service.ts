@@ -7,6 +7,7 @@ import { auth } from '../firebaseConfig';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from 'src/user/user.entity';
+import { Student } from 'src/student/student.entity';
 
 @Injectable()
 export class AuthService {

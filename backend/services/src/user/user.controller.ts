@@ -22,6 +22,8 @@ import { UserService } from './user.service';
   query: {
     join: {
       institute: {},
+      tutor: {},
+      student: {},
     },
     limit: 20,
     maxLimit: 50,

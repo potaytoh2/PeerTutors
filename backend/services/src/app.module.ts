@@ -15,7 +15,15 @@ import { UserService } from './user/user.service';
 import { InstituteService } from './institute/institute.service';
 import { AuthService } from './auth/auth.service';
 import { AuthController } from './auth/auth.controller';
+import { StudentService } from './student/student.service';
+import { StudentController } from './student/student.controller';
 import { StudentModule } from './student/student.module';
+import { TutorService } from './tutor/tutor.service';
+import { TutorController } from './tutor/tutor.controller';
+import { TutorModule } from './tutor/tutor.module';
+import { InstituteAdminController } from './institute-admin/institute-admin.controller';
+import { InstituteAdminService } from './institute-admin/institute-admin.service';
+import { InstituteAdminModule } from './institute-admin/institute-admin.module';
 const entities = [User, Institute];
 @Module({
   imports: [
@@ -34,8 +42,10 @@ const entities = [User, Institute];
     UserModule,
     InstituteModule,
     StudentModule,
+    TutorModule,
+    InstituteAdminModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, StudentController, TutorController, InstituteAdminController],
+  providers: [AppService, StudentService, TutorService, InstituteAdminService],
 })
 export class AppModule {}
