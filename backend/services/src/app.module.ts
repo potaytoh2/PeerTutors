@@ -5,17 +5,11 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { InstituteModule } from './institute/institute.module';
-
-import { UserController } from './user/user.controller';
-import { InstituteController } from './institute/institute.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Institute } from './institute/institute.entity';
 import { User } from './user/user.entity';
-import { UserService } from './user/user.service';
-import { InstituteService } from './institute/institute.service';
-import { AuthService } from './auth/auth.service';
-import { AuthController } from './auth/auth.controller';
-import { StudentModule } from './student/student.module';
+import { ModuleModule } from './module/module.module';
+
 const entities = [User, Institute];
 @Module({
   imports: [
@@ -33,7 +27,8 @@ const entities = [User, Institute];
     AuthModule,
     UserModule,
     InstituteModule,
-    StudentModule,
+    ModuleModule
+
   ],
   controllers: [AppController],
   providers: [AppService],
