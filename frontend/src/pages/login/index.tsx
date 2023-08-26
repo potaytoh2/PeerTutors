@@ -1,4 +1,4 @@
-import { Header } from '../../components/navigation/header';
+import { Header } from '../../components/navigation/Header';
 import { Logo } from '../../templates/Logo';
 
 export default function Login(){
