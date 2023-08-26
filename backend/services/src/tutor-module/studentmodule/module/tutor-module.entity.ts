@@ -18,45 +18,35 @@ import {
   MaxLength,
 } from 'class-validator';
 import { User } from 'src/user/user.entity';
-import { StudentModule } from 'src/studentmodule/module/student-module.entity';
-import { TutorModule } from 'src/tutor/tutor.module';
-import Module from 'module';
+import { ModuleEntity } from 'src/module/module.entity';
 
-@Entity('module')
-export class ModuleEntity {
+@Entity('tutorModule')
+export class TutorModule {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @ApiProperty({
-    example: 'IS111',
-    description: 'Module code',
+    example: '17e3e236-aadf-4131-833c-2d9a0031dhsc9',
+    description: 'tutor_id',
   })
   @Column()
   @IsNotEmpty()
   @IsString()
   @MaxLength(36)
-  module_code: string;
+  tutor_id: string;
 
   @ApiProperty({
-    example: 'Bryen',
-    description: 'name',
+    example: '17e3e236-aadf-4131-833c-2d9a0031dhsr5',
+    description: 'module_id',
   })
   @IsUUID()
   @IsNotEmpty()
   @Column()
-  name: string;
+  module_id: string;
+
 
   @ApiProperty({
-    example: '500.50',
-    description: 'base pay',
-  })
-  @IsUUID()
-  @IsOptional()
-  @Column()
-  base_pay: number;
-
-  @ApiProperty({
-    example: '4a2340ea-5dc2-403d-b133-17e9d306a293',
+    example: '4a2340ea-5dc2-403d-b133-17e9d306a256',
     description: 'property updated by this user',
   })
   @IsUUID()
@@ -65,7 +55,7 @@ export class ModuleEntity {
   updated_by?: string;
 
   @ApiProperty({
-    example: '4a2340ea-5dc2-403d-b133-17e9d306a293',
+    example: '4a2340ea-5dc2-403d-b133-17e9d306a256',
     description: 'property created by this user',
   })
   @IsUUID()
@@ -74,10 +64,8 @@ export class ModuleEntity {
   created_by?: string;
 
 
-  @OneToMany(() => StudentModule, (studentModule) => studentModule.module)
-  studentModule: StudentModule[];
+  @ManyToOne(() => ModuleEntity, (module) => module.tutorModule)
+  @JoinColumn({ name: 'module_id', referencedColumnName: 'id' })
+  module: ModuleEntity;
 
-  
-  @OneToMany(() => TutorModule, (tutorModule) => tutorModule.module)
-  tutorModule: TutorModule[];
 }
