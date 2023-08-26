@@ -1,12 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  OneToMany,
-  JoinColumn,
-  OneToOne,
-} from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import {
   IsNotEmpty,
   IsOptional,
@@ -17,6 +10,7 @@ import {
 import { StudentMod } from 'src/student-mod/student-mod.entity';
 import { TutorRequest } from 'src/tutor-request/tutor-request.entity';
 import { Transaction } from 'src/transaction/transaction.entity';
+import { TutorMod } from 'src/tutor-mod/tutor-mod.entity';
 
 @Entity('module')
 export class ModuleEntity {
@@ -76,4 +70,7 @@ export class ModuleEntity {
 
   @OneToMany(() => Transaction, (transaction) => transaction.student)
   transaction: Transaction[];
+
+  @OneToMany(() => TutorMod, (tutorMod) => tutorMod.module)
+  tutorMod: TutorMod[];
 }
