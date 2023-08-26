@@ -1,22 +1,23 @@
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 
-type HeaderProps = {
+type TutorHeaderProps = {
   logo: ReactNode;
-  children: ReactNode;
 };
 
-const Header = (props: HeaderProps) => (
+const TutorHeader = (props: TutorHeaderProps) => (
+
   <div className="flex flex-wrap items-center justify-between">
     <div>
-      <Link href="/">{props.logo}</Link>
+      <nav>
+        <ul className="navbar flex items-center text-xs font-medium text-gray-800">
+          <Link className="" href="/">{props.logo}</Link>
+            <li>
+                <Link href="/">My Account</Link>
+            </li>
+        </ul>
+      </nav>
     </div>
-
-    <nav>
-      <ul className="navbar flex items-center text-xl font-medium text-gray-800">
-        {props.children}
-      </ul>
-    </nav>
 
     <style jsx>
       {`
@@ -32,4 +33,4 @@ const Header = (props: HeaderProps) => (
   </div>
 );
 
-export { Header };
+export { TutorHeader };
