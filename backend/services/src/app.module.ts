@@ -11,6 +11,7 @@ import { InstituteAdminModule } from './institute-admin/institute-admin.module';
 import { ModuleModule } from './module/module.module';
 import { StudentModule } from './student/student.module';
 import { TutorModule } from './tutor/tutor.module';
+import { StudentModuleModule } from './student-module/student-module.module';
 const entities = [User, Institute];
 @Module({
   imports: [
@@ -28,6 +29,7 @@ const entities = [User, Institute];
     AuthModule,
     UserModule,
     InstituteModule,
+    StudentModuleModule,
     ModuleModule,
     StudentModule,
     TutorModule,
