@@ -10,21 +10,21 @@ import {
 import { Institute } from 'src/institute/institute.entity';
 import { Student } from 'src/student/student.entity';
 import { Tutor } from 'src/tutor/tutor.entity';
+import { WalletTransaction } from 'src/wallet-transaction/wallet-transaction.entity';
 import {
   Column,
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-
 
 @Entity('wallet')
 export class Wallet {
   @PrimaryGeneratedColumn('uuid')
   id: string;
-
 
   @ApiProperty({
     example: '17e3e236-aadf-4131-833c-2d9a0031dhsc9',
@@ -42,7 +42,6 @@ export class Wallet {
   @Column()
   @IsNotEmpty()
   amount: number;
-
 
   @ApiProperty({
     example: 'ce27b144-4d2f-49cd-99ee-0616140540b1',
@@ -62,8 +61,14 @@ export class Wallet {
   @Column({ default: null })
   updated_by?: string;
 
-
-  @OneToOne(() => Tutor, (tutor) => tutor.user)
-  @JoinColumn({ name: 'tutor_id', referencedColumnName: 'id' })
+  @OneToOne(() => Tutor)
+  @JoinColumn({ referencedColumnName: 'wallet_id', name: 'id' })
+  @IsNotEmpty()
   tutor: Tutor;
+
+  @OneToMany(
+    () => WalletTransaction,
+    (walletTransaction) => walletTransaction.wallet,
+  )
+  walletTransaction: WalletTransaction[];
 }

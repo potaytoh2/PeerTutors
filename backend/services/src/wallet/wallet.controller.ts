@@ -21,9 +21,8 @@ import { WalletService } from './wallet.service';
   },
   query: {
     join: {
-      institute: {},
       tutor: {},
-      student: {},
+      walletTransaction: {},
     },
     limit: 20,
     maxLimit: 50,

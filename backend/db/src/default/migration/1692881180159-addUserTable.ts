@@ -40,13 +40,14 @@ export class addUserTable1692881180159 implements MigrationInterface {
             type: 'enum',
             enum: ['male', 'female', 'non-binary'],
             enumName: 'userGender',
-            isNullable: false,
+            isNullable: true,
           },
           {
             name: 'account_type',
             type: 'enum',
             enum: ['student', 'admin', 'both'],
             enumName: 'userRole',
+            default: 'student',
             isNullable: false,
           },
           {

@@ -24,6 +24,7 @@ import { StudentService } from './student.service';
       user: {},
       tutorRequest: {},
       transaction: {},
+      review: {},
     },
     limit: 20,
     maxLimit: 50,

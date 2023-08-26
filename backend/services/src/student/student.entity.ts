@@ -21,6 +21,7 @@ import {
 import { User } from 'src/user/user.entity';
 import { TutorRequest } from 'src/tutor-request/tutor-request.entity';
 import { Transaction } from 'src/transaction/transaction.entity';
+import { Review } from 'src/review/review.entity';
 
 @Entity('student')
 export class Student {
@@ -72,4 +73,7 @@ export class Student {
 
   @OneToMany(() => Transaction, (transaction) => transaction.student)
   transaction: Transaction[];
+
+  @OneToMany(() => Review, (review) => review.student)
+  review: Review[];
 }

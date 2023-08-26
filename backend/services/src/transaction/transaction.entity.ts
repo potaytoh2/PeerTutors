@@ -1,6 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsUUID, IsNotEmpty, IsOptional, MaxLength } from 'class-validator';
 import { ModuleEntity } from 'src/module/module.entity';
+import { Review } from 'src/review/review.entity';
 import { Student } from 'src/student/student.entity';
 import { Tutor } from 'src/tutor/tutor.entity';
 import {
@@ -10,6 +11,7 @@ import {
   ManyToMany,
   ManyToOne,
   JoinColumn,
+  OneToMany,
 } from 'typeorm';
 
 @Entity('transaction')
@@ -95,6 +97,9 @@ export class Transaction {
   @IsOptional()
   @Column({ default: null })
   updated_by?: string;
+
+  @OneToMany(() => Review, (review) => review.transaction)
+  review: Review[];
 
   @ManyToOne(() => Tutor, (tutor) => tutor.transaction)
   @JoinColumn({ name: 'tutor_id', referencedColumnName: 'id' })

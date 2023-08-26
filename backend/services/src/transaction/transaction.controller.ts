@@ -23,6 +23,7 @@ import { TransactionService } from './transaction.service';
       module: {},
       student: {},
       tutor: {},
+      review: {},
     },
     limit: 20,
     maxLimit: 50,

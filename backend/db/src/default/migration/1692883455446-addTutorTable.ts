@@ -31,6 +31,13 @@ export class addTutorTable1692883455446 implements MigrationInterface {
             isNullable: false,
           },
           {
+            name: 'wallet_id',
+            type: 'varchar',
+            length: '36',
+            isUnique: true,
+            isNullable: true,
+          },
+          {
             name: 'tutor_rating',
             type: 'float',
             isNullable: true,

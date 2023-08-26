@@ -19,6 +19,8 @@ import { TutorTier } from './tutor.enum';
 import { TutorSchedule } from 'src/tutor-schedule/tutor-schedule.entity';
 import { TutorRequest } from 'src/tutor-request/tutor-request.entity';
 import { Transaction } from 'src/transaction/transaction.entity';
+import { Wallet } from 'src/wallet/wallet.entity';
+import { Review } from 'src/review/review.entity';
 
 @Entity('tutor')
 export class Tutor {
@@ -41,6 +43,15 @@ export class Tutor {
   @IsOptional()
   @Column()
   tutor_rating: number;
+
+  @ApiProperty({
+    example: '17e3e236-aadf-4131-833c-2d9a0031dhse2',
+    description: 'wallet_id',
+  })
+  @IsUUID()
+  @IsOptional()
+  @Column()
+  wallet_id: string;
 
   @ApiProperty({
     example: 'bronze',
@@ -83,6 +94,11 @@ export class Tutor {
   @IsNotEmpty()
   user: User;
 
+  @OneToOne(() => Wallet)
+  @JoinColumn({ name: 'id' })
+  @IsNotEmpty()
+  wallet: Wallet;
+
   @OneToMany(() => TutorRequest, (tutorRequest) => tutorRequest.tutor)
   tutorRequest: TutorRequest[];
 
@@ -91,4 +107,7 @@ export class Tutor {
 
   @OneToMany(() => Transaction, (transaction) => transaction.tutor)
   transaction: Transaction[];
+
+  @OneToMany(() => Review, (review) => review.tutor)
+  review: Review[];
 }

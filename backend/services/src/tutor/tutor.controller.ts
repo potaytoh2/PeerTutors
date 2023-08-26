@@ -25,6 +25,7 @@ import { TutorService } from './tutor.service';
       tutorRequest: {},
       tutorSchedule: {},
       transaction: {},
+      wallet: {},
     },
     limit: 20,
     maxLimit: 50,

@@ -31,7 +31,6 @@ export class ModuleEntity {
     example: 'Bryen',
     description: 'name',
   })
-  @IsUUID()
   @IsNotEmpty()
   @Column()
   name: string;

@@ -25,17 +25,32 @@ import { TutorRequestModule } from './tutor-request/tutor-request.module';
 import { TutorRequest } from './tutor-request/tutor-request.entity';
 import { TransactionModule } from './transaction/transaction.module';
 import { TutorModModule } from './tutor-mod/tutor-mod.module';
+import { TutorMod } from './tutor-mod/tutor-mod.entity';
+import { Transaction } from './transaction/transaction.entity';
+import { Wallet } from './wallet/wallet.entity';
+import { WalletModule } from './wallet/wallet.module';
+import { WalletTransactionController } from './wallet-transaction/wallet-transaction.controller';
+import { WalletTransactionService } from './wallet-transaction/wallet-transaction.service';
+import { WalletTransactionModule } from './wallet-transaction/wallet-transaction.module';
+import { WalletTransaction } from './wallet-transaction/wallet-transaction.entity';
+import { ReviewModule } from './review/review.module';
+import { Review } from './review/review.entity';
 
 const entities = [
-  User,
   Institute,
   InstituteAdmin,
   ModuleEntity,
   Student,
-  Tutor,
   StudentMod,
-  TutorSchedule,
+  Transaction,
+  Tutor,
+  TutorMod,
   TutorRequest,
+  TutorSchedule,
+  User,
+  Wallet,
+  WalletTransaction,
+  Review,
 ];
 @Module({
   imports: [
@@ -51,19 +66,22 @@ const entities = [
       logging: true,
     }),
     AuthModule,
-    UserModule,
     InstituteModule,
+    InstituteAdminModule,
     ModuleModule,
     StudentModule,
-    TutorModule,
-    InstituteAdminModule,
     StudentModModule,
-    TutorScheduleModule,
-    TutorRequestModule,
     TransactionModule,
+    TutorModule,
     TutorModModule,
+    TutorRequestModule,
+    TutorScheduleModule,
+    UserModule,
+    WalletModule,
+    WalletTransactionModule,
+    ReviewModule,
   ],
-  controllers: [AppController, TutorScheduleController],
-  providers: [AppService, TutorScheduleService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
