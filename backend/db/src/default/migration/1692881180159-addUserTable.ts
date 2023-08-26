@@ -26,7 +26,7 @@ export class addUserTable1692881180159 implements MigrationInterface {
           },
           {
             name: 'email',
-            type: 'varchar(50)',
+            type: 'varchar(100)',
             isUnique: true,
             isNullable: false,
           },
@@ -38,7 +38,7 @@ export class addUserTable1692881180159 implements MigrationInterface {
           {
             name: 'gender',
             type: 'enum',
-            enum: ['Male', 'Female', 'Non-binary'],
+            enum: ['male', 'female', 'non-binary'],
             enumName: 'userGender',
             isNullable: false,
           },

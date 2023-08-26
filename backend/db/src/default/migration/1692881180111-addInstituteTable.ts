@@ -21,7 +21,7 @@ export class addInstituteTable1692881180111 implements MigrationInterface {
           {
             name: 'name',
             type: 'varchar',
-            length: '50',
+            length: '100',
             isUnique: true,
             isNullable: false,
           },
