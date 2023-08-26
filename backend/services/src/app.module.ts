@@ -23,6 +23,7 @@ import { TutorScheduleModule } from './tutor-schedule/tutor-schedule.module';
 import { TutorSchedule } from './tutor-schedule/tutor-schedule.entity';
 import { TutorRequestModule } from './tutor-request/tutor-request.module';
 import { TutorRequest } from './tutor-request/tutor-request.entity';
+import { TransactionModule } from './transaction/transaction.module';
 
 const entities = [
   User,
@@ -58,6 +59,7 @@ const entities = [
     StudentModModule,
     TutorScheduleModule,
     TutorRequestModule,
+    TransactionModule,
   ],
   controllers: [AppController, TutorScheduleController],
   providers: [AppService, TutorScheduleService],

@@ -18,6 +18,7 @@ import { User } from 'src/user/user.entity';
 import { TutorTier } from './tutor.enum';
 import { TutorSchedule } from 'src/tutor-schedule/tutor-schedule.entity';
 import { TutorRequest } from 'src/tutor-request/tutor-request.entity';
+import { Transaction } from 'src/transaction/transaction.entity';
 
 @Entity('tutor')
 export class Tutor {
@@ -82,11 +83,12 @@ export class Tutor {
   @IsNotEmpty()
   user: User;
 
-  @OneToOne(() => TutorRequest)
-  @JoinColumn({ name: 'id' })
-  @IsNotEmpty()
-  tutorRequest: TutorRequest;
+  @OneToMany(() => TutorRequest, (tutorRequest) => tutorRequest.tutor)
+  tutorRequest: TutorRequest[];
 
   @OneToMany(() => TutorSchedule, (tutorSchedule) => tutorSchedule.tutor)
   tutorSchedule: TutorSchedule[];
+
+  @OneToMany(() => Transaction, (transaction) => transaction.tutor)
+  transaction: Transaction[];
 }

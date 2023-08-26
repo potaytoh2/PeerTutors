@@ -16,6 +16,7 @@ import {
 } from 'class-validator';
 import { StudentMod } from 'src/student-mod/student-mod.entity';
 import { TutorRequest } from 'src/tutor-request/tutor-request.entity';
+import { Transaction } from 'src/transaction/transaction.entity';
 
 @Entity('module')
 export class ModuleEntity {
@@ -45,7 +46,6 @@ export class ModuleEntity {
     example: '500.50',
     description: 'base pay',
   })
-  @IsUUID()
   @IsOptional()
   @Column()
   base_pay: number;
@@ -68,11 +68,12 @@ export class ModuleEntity {
   @Column({ default: null })
   created_by?: string;
 
-  @OneToOne(() => TutorRequest)
-  @JoinColumn({ name: 'id' })
-  @IsNotEmpty()
-  tutorRequest: TutorRequest;
-
   @OneToMany(() => StudentMod, (studentMod) => studentMod.module)
   studentMod: StudentMod[];
+
+  @OneToMany(() => TutorRequest, (tutorRequest) => tutorRequest.module)
+  tutorRequest: TutorRequest[];
+
+  @OneToMany(() => Transaction, (transaction) => transaction.student)
+  transaction: Transaction[];
 }

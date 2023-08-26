@@ -23,6 +23,7 @@ import { ModuleService } from './module.service';
     join: {
       studentMod: {},
       tutorRequest: {},
+      transaction: {},
     },
     limit: 20,
     maxLimit: 50,

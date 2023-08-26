@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsUUID, IsNotEmpty, IsOptional } from 'class-validator';
+import { IsUUID, IsNotEmpty, IsOptional, MaxLength } from 'class-validator';
 import { ModuleEntity } from 'src/module/module.entity';
 import { Student } from 'src/student/student.entity';
 import { Tutor } from 'src/tutor/tutor.entity';
@@ -7,19 +7,19 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
+  ManyToMany,
   ManyToOne,
   JoinColumn,
-  OneToOne,
 } from 'typeorm';
 
-@Entity('tutor-request')
-export class TutorRequest {
+@Entity('transaction')
+export class Transaction {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @ApiProperty({
     example: '17e3e236-aadf-4131-833c-2d9a0031dhse2',
-    description: 'tutor id',
+    description: 'student id',
   })
   @IsUUID()
   @IsNotEmpty()
@@ -28,7 +28,7 @@ export class TutorRequest {
 
   @ApiProperty({
     example: '17e3e236-aadf-4131-833c-2d9a0031dhse2',
-    description: 'tutor id',
+    description: 'student id',
   })
   @IsUUID()
   @IsNotEmpty()
@@ -36,16 +36,8 @@ export class TutorRequest {
   student_id: string;
 
   @ApiProperty({
-    example: '14/09/2023',
-    description: 'Tutor available date',
-  })
-  @IsNotEmpty()
-  @Column()
-  date: Date;
-
-  @ApiProperty({
     example: '17e3e236-aadf-4131-833c-2d9a0031dhse2',
-    description: 'tutor id',
+    description: 'module id',
   })
   @IsUUID()
   @IsNotEmpty()
@@ -53,12 +45,38 @@ export class TutorRequest {
   module_id: string;
 
   @ApiProperty({
-    example: true,
-    description: 'Whether request is accepted by tutor',
+    example: '17e3e236-aadf-4131-833c-2d9a0031dhse2',
+    description: 'module id',
+  })
+  @IsUUID()
+  @IsNotEmpty()
+  @Column()
+  request_id: string;
+
+  @ApiProperty({
+    example: '500.50',
+    description: 'amount paid',
   })
   @IsNotEmpty()
   @Column()
-  isAccepted: boolean;
+  amount: number;
+
+  @ApiProperty({
+    example: 'verified good',
+    description: 'verification comments',
+  })
+  @IsOptional()
+  @MaxLength(100)
+  @Column()
+  verification_comments: string;
+
+  @ApiProperty({
+    example: true,
+    description: 'whether transaction is verified',
+  })
+  @IsNotEmpty()
+  @Column()
+  isVerified: boolean;
 
   @ApiProperty({
     example: 'ce27b144-4d2f-49cd-99ee-0616140540b1',
@@ -78,15 +96,15 @@ export class TutorRequest {
   @Column({ default: null })
   updated_by?: string;
 
-  @ManyToOne(() => Tutor, (tutor) => tutor.tutorRequest)
+  @ManyToOne(() => Tutor, (tutor) => tutor.transaction)
   @JoinColumn({ name: 'tutor_id', referencedColumnName: 'id' })
   tutor: Tutor;
 
-  @ManyToOne(() => Student, (student) => student.tutorRequest)
+  @ManyToOne(() => Student, (student) => student.transaction)
   @JoinColumn({ name: 'student_id', referencedColumnName: 'id' })
   student: Student;
 
-  @ManyToOne(() => ModuleEntity, (module) => module.tutorRequest)
+  @ManyToOne(() => ModuleEntity, (module) => module.transaction)
   @JoinColumn({ name: 'module_id', referencedColumnName: 'id' })
   module: ModuleEntity;
 }

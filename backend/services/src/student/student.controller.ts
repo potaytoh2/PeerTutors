@@ -23,6 +23,7 @@ import { StudentService } from './student.service';
     join: {
       user: {},
       tutorRequest: {},
+      transaction: {},
     },
     limit: 20,
     maxLimit: 50,

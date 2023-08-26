@@ -20,6 +20,7 @@ import {
 } from 'class-validator';
 import { User } from 'src/user/user.entity';
 import { TutorRequest } from 'src/tutor-request/tutor-request.entity';
+import { Transaction } from 'src/transaction/transaction.entity';
 
 @Entity('student')
 export class Student {
@@ -66,8 +67,9 @@ export class Student {
   @IsNotEmpty()
   user: User;
 
-  @OneToOne(() => TutorRequest)
-  @JoinColumn({ name: 'id' })
-  @IsNotEmpty()
-  tutorRequest: TutorRequest;
+  @OneToMany(() => TutorRequest, (tutorRequest) => tutorRequest.student)
+  tutorRequest: TutorRequest[];
+
+  @OneToMany(() => Transaction, (transaction) => transaction.student)
+  transaction: Transaction[];
 }
