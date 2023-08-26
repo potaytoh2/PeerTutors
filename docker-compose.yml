@@ -42,6 +42,15 @@ services:
       - ./backend/db/src:/app/src
       - ./backend/db/package.json:/app/package.json
 
+  services:
+    extends:
+      file: ./backend/infra-local/backend.yml
+      service: services
+    ports:
+      - 8501:3000
+    depends_on:
+      - db-services-migrations-db
+
   
 
  

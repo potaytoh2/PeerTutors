@@ -51,7 +51,7 @@ export class addReviewTable1692982199233 implements MigrationInterface {
           {
             name: 'review',
             type: 'varchar',
-            length: '100',
+            length: '5000',
             isNullable: true,
           },
           {

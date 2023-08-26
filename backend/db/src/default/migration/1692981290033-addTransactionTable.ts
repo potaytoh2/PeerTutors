@@ -63,7 +63,7 @@ export class addTransactionTable1692981290033 implements MigrationInterface {
           {
             name: 'verification_comments',
             type: 'varchar',
-            length: '50',
+            length: '100',
             isNullable: true,
           },
           {
