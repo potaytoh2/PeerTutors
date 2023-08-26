@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import { Button } from '../button/Button';
-import { CTABanner } from '../cta/CTABanner';
+import { CTABanner } from '../components/cta/CTABanner';
 import { Section } from '../layout/Section';
 
 const Banner = () => (
