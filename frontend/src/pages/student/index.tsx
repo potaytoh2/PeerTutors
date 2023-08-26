@@ -34,21 +34,21 @@ const Index = () => {
 
                     <Section yPadding="pt-10 pb-32">
                         <div className="mb-8 text-left">
-                            <h2 className="text-4xl font-bold text-gray-900">Tutor Apps</h2>
+                            <h2 className="text-4xl font-bold text-gray-900">Student Apps</h2>
                         </div>
 
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                            <Link href="/tutor/schedule">
+                            <Link href="student/search">
                                 <Button classProps='w-full h-30'>
                                     <div className='flex items-center space-x-2 px-2 py-2'>
-                                        <div className='w-24 h-100'>
-                                            <img className="h-24 w-24" src={`${router.basePath}${"/assets/images/tabs/undraw_join_re_w1lh.svg"}`}/>
+                                        <div className='w-24 h-100' >
+                                            <img className="h-24 w-24" src={`${router.basePath}${"/assets/images/tabs/undraw_search_engines_ij7q.svg"}`}/>
                                         </div>
-                                        <span className="flex-grow text-center">Pick My Availability</span>
+                                        <span className="flex-grow text-center">Search For Tutors</span>
                                     </div>
                                 </Button>
                             </Link>
-                            <Link href="/tutor/requests">
+                            <Link href="/student/requests">
                                 <Button classProps='w-full h-30'>
                                     <div className='flex items-center space-x-2 px-2 py-2'>
                                         <div className='w-24 h-100'>
@@ -58,7 +58,7 @@ const Index = () => {
                                     </div>
                                 </Button>
                             </Link>
-                            <Link href="/tutor/upcoming">
+                            <Link href="/student/upcoming">
                                 <Button classProps='w-full h-30'>
                                     <div className='flex items-center space-x-2 px-2 py-2'>
                                         <div className='w-24 h-100'>
@@ -68,7 +68,7 @@ const Index = () => {
                                     </div>
                                 </Button>
                             </Link>
-                            <Link href="/tutor/wallet">
+                            <Link href="https://creativedesignsguru.com/category/nextjs/">
                                 <Button classProps='w-full h-full'>
                                     <div className='flex items-center space-x-2 px-2 py-2'>
                                         <div className='w-24 h-100'>
@@ -78,7 +78,7 @@ const Index = () => {
                                     </div>
                                 </Button>
                             </Link>
-                            <Link href="/tutor/history">
+                            <Link href="/student/history">
                                 <Button classProps='w-full h-full'>
                                     <div className='flex items-center space-x-2 px-2 py-2'>
                                         <div className='w-24 h-100'>
@@ -88,7 +88,7 @@ const Index = () => {
                                     </div>
                                 </Button>
                             </Link>
-                            <Link href="/tutor/messages">
+                            <Link href="/student/message">
                                 <Button classProps='w-full h-full'>
                                     <div className='flex items-center space-x-2 px-2 py-2'>
                                         <div className='w-24 h-100'>

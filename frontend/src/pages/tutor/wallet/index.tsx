@@ -11,7 +11,7 @@ import { Meta } from '../../../layout/Meta';
 import { AppConfig } from '../../../utils/AppConfig';
 import { Banner } from '../../../templates/Banner';
 import { Footer } from '../../../templates/Footer';
-import { UpcomingDetailsRow } from '../../../components/feature/UpcomingDetailsRow';
+import { WalletDetailsRow } from '../../../components/feature/WalletDetailsRow';
 import { useEffect, useState } from 'react';
 
 
@@ -35,6 +35,7 @@ const Index = () => {
         mod: 'CS203 CSD',
         date: '10 Jan 2023',
         time: '5:30pm-7:30pm',
+        price: '20.10'
       },
       {
         id: 2,
@@ -43,6 +44,7 @@ const Index = () => {
         mod: 'IS112 DBMS',
         date: '08 Feb 2023',
         time: '3:30pm-5:30pm',
+        price: '74.20'
       },
       // Add more mock data items as needed
     ];
@@ -82,13 +84,21 @@ const Index = () => {
       </Background>
 
       <Section yPadding="pt-10 pb-32">
-        <div className="mb-8 text-left">
-          <h2 className="text-4xl font-bold text-gray-900">Upcoming</h2>
-          <div className=" text-xl">View Upcoming Appointments</div>
+        <div className='flex mb-8'>
+            <div className="text-left w-1/2">
+                <h2 className="text-4xl font-bold text-gray-900">Wallet</h2>
+                <div className=" text-xl">View Earnings</div>
+            </div>
+            <div className='flex justify-end w-1/2 text-primary-800'>
+                <div className='bg-primary-200 px-8 py-2 rounded-3xl'>
+                    <h2 className="text-4xl font-bold">$1,550.56</h2>
+                    <div className="text-xl text-right leading-4 pb-2 text-primary-700">Total Balance</div>
+                </div>
+            </div>
         </div>
 
           {data.map(item => (
-            <UpcomingDetailsRow key={item.id} name={item.name} desc={item.description} mod={item.mod} date={item.date} time={item.time}/>
+            <WalletDetailsRow key={item.id} name={item.name} desc={item.description} mod={item.mod} date={item.date} time={item.time} price={item.price}/>
           ))}
 
           <Button classProps='mt-8' onClick={() => router.replace("./")}>

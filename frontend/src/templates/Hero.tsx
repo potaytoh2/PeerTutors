@@ -6,39 +6,47 @@ import { Section } from '../layout/Section';
 import { NavbarTwoColumns } from '../components/navigation/NavbarTwoColumns';
 import { Logo } from './Logo';
 import { Button } from '../components/button/Button';
+import { useRouter } from 'next/router';
 
-const Hero = () => (
-  <Background color="bg-gray-100">
-    <Section yPadding="py-6">
-      <NavbarTwoColumns logo={<Logo xl />}>
-        <li>
-          <Link href="https://github.com/ixartz/Next-JS-Landing-Page-Starter-Template">
-            GitHub
-          </Link>
-        </li>
-        <li>
-          <Link href="/">Sign in</Link>
-        </li>
-      </NavbarTwoColumns>
-    </Section>
+const Hero = () => {
+  const router = useRouter();
+  const bgImagePath = `${router.basePath}/assets/images/bg.jpg`;
 
-    <Section yPadding="pt-20 pb-32">
-      <HeroOneButton
-        title={
-          <>
-            {'The modern landing page for\n'}
-            <span className="text-primary-500">React developers</span>
-          </>
-        }
-        description="The easiest way to build a React landing page in seconds."
-        button={
-          <Link href="https://creativedesignsguru.com/category/nextjs/">
-            <Button xl>Download Your Free Theme</Button>
-          </Link>
-        }
-      />
-    </Section>
-  </Background>
-);
+  return (
+    <Background color="bg-gray-100">
+      <Section yPadding="py-6">
+        <NavbarTwoColumns logo={<Logo xl />}>
+          <li>
+            <Link href="https://github.com/ixartz/Next-JS-Landing-Page-Starter-Template">
+              GitHub
+            </Link>
+          </li>
+          <li>
+            <Link href="/">Sign in</Link>
+          </li>
+        </NavbarTwoColumns>
+      </Section>
+
+      {/* <div style={{ backgroundImage: `url(${bgImagePath})` }} className="bg-cover bg-center w-full h-full"> */}
+      <Section yPadding="pt-20 pb-32">
+          <HeroOneButton
+            title={
+              <>
+                {'Embark Your Journey with\n'}
+                <span className="text-primary-500">LamboTutors</span>
+              </>
+            }
+            description="Your Ultimate Peer-to-Peer Tutoring Solution!"
+            button={
+              <Link href="student">
+                <Button xl>Register Now!</Button>
+              </Link>
+            }
+          />
+      </Section>
+      {/* </div> */}
+    </Background>
+  );
+}
 
 export { Hero };

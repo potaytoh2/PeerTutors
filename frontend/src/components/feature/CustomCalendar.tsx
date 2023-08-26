@@ -86,7 +86,14 @@ const CustomCalendar = (props: customCalendarProps) => {
           style={{ height: 450 }} />
       </div>
 
-        <div className='flex justify-end space-x-4 pt-8'>
+      <div className='flex'>
+
+<div className='w-1/2'>
+          <Button classProps='mt-8' onClick={() => router.replace("./")}>
+            Back
+          </Button>
+          </div>
+          <div className='flex justify-end space-x-4 mt-8 w-1/2'>
           <Button onClick={handleSubmit}>
             Submit
           </Button>
@@ -97,6 +104,9 @@ const CustomCalendar = (props: customCalendarProps) => {
             Clear
           </Button>
         </div>
+      </div>
+
+        
     </div>
   );
 };

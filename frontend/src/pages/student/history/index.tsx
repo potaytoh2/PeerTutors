@@ -11,8 +11,8 @@ import { Meta } from '../../../layout/Meta';
 import { AppConfig } from '../../../utils/AppConfig';
 import { Banner } from '../../../templates/Banner';
 import { Footer } from '../../../templates/Footer';
-import { UpcomingDetailsRow } from '../../../components/feature/UpcomingDetailsRow';
 import { useEffect, useState } from 'react';
+import { HistoryDetailsRow } from '@/components/feature/HistoryDetailsRow';
 
 
 const Index = () => {
@@ -83,12 +83,12 @@ const Index = () => {
 
       <Section yPadding="pt-10 pb-32">
         <div className="mb-8 text-left">
-          <h2 className="text-4xl font-bold text-gray-900">Upcoming</h2>
-          <div className=" text-xl">View Upcoming Appointments</div>
+          <h2 className="text-4xl font-bold text-gray-900">History</h2>
+          <div className=" text-xl">View Past Sessions</div>
         </div>
 
           {data.map(item => (
-            <UpcomingDetailsRow key={item.id} name={item.name} desc={item.description} mod={item.mod} date={item.date} time={item.time}/>
+            <HistoryDetailsRow key={item.id} name={item.name} desc={item.description} mod={item.mod} date={item.date} time={item.time}/>
           ))}
 
           <Button classProps='mt-8' onClick={() => router.replace("./")}>
