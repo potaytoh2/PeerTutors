@@ -6,6 +6,6 @@ export enum UserGender {
 
 export enum UserAccountType {
   Student = 'student',
-  Tutor = 'tutor',
   Admin = 'admin',
+  Both = 'both',
 }

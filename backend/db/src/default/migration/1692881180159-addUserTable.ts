@@ -47,7 +47,7 @@ export class addUserTable1692881180159 implements MigrationInterface {
             type: 'enum',
             enum: ['student', 'admin', 'both'],
             enumName: 'userRole',
-            default: 'student',
+            default: "'student'",
             isNullable: false,
           },
           {
