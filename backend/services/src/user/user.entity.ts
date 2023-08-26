@@ -8,11 +8,14 @@ import {
   MaxLength,
 } from 'class-validator';
 import { Institute } from 'src/institute/institute.entity';
+import { Student } from 'src/student/student.entity';
+import { Tutor } from 'src/tutor/tutor.entity';
 import {
   Column,
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { UserAccountType, UserGender } from './user.enum';
@@ -86,6 +89,16 @@ export class User {
   @IsOptional()
   @Column({ default: null })
   updated_by?: string;
+
+  @OneToOne(() => Student)
+  @JoinColumn({ referencedColumnName: 'user_id', name: 'id' })
+  @IsNotEmpty()
+  student: Student;
+
+  @OneToOne(() => Tutor)
+  @JoinColumn({ referencedColumnName: 'user_id', name: 'id' })
+  @IsNotEmpty()
+  tutor: Tutor;
 
   @ManyToOne(() => Institute, (institute) => institute.user)
   @JoinColumn({ name: 'institute_id', referencedColumnName: 'id' })
