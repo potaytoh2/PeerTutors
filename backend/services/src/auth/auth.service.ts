@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { auth, db } from '../../firebase.config';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-} from 'firebase/auth';
+} from '@firebase/auth';
+import { auth } from '../../firebaseConfig';
 
 @Injectable()
 export class AuthService {
