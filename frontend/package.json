@@ -26,6 +26,7 @@
     "react-bootstrap": "^2.8.0",
     "react-dom": "^18.2.0",
     "styled-jsx-plugin-postcss": "^4.0.1",
+    "talkjs": "^0.16.4",
     "zod": "^3.22.2"
   },
   "devDependencies": {

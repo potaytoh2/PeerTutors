@@ -3,12 +3,12 @@ import { hashPassword } from "@/utils/common/hash";
 import { emailValidator } from "@/utils/zodEmail";
 import axios from "axios";
 
-interface ReqBody {
+export interface ReqBody {
   email: string;
   password: string;
 }
 
-export async function processSignupServices({
+export async function processLoginServices({
   email,
   password,
 }: ReqBody): Promise<any> {
