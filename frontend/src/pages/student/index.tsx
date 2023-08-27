@@ -68,7 +68,7 @@ const Index = () => {
                                     </div>
                                 </Button>
                             </Link>
-                            <Link href="https://creativedesignsguru.com/category/nextjs/">
+                            {/* <Link href="https://creativedesignsguru.com/category/nextjs/">
                                 <Button classProps='w-full h-full'>
                                     <div className='flex items-center space-x-2 px-2 py-2'>
                                         <div className='w-24 h-100'>
@@ -77,7 +77,7 @@ const Index = () => {
                                         <span className="flex-grow text-center">View Wallet</span>
                                     </div>
                                 </Button>
-                            </Link>
+                            </Link> */}
                             <Link href="/student/history">
                                 <Button classProps='w-full h-full'>
                                     <div className='flex items-center space-x-2 px-2 py-2'>

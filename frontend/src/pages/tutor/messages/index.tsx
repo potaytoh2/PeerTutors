@@ -11,6 +11,7 @@ import { Meta } from '../../../layout/Meta';
 import { AppConfig } from '../../../utils/AppConfig';
 import { Banner } from '../../../templates/Banner';
 import { Footer } from '../../../templates/Footer';
+import { useRouter } from 'next/router';
 
 type IMyChatComponentProps = {
     classProps?: string; // Made optional
@@ -18,6 +19,9 @@ type IMyChatComponentProps = {
 
 
 export default function MyChatComponent(props: IMyChatComponentProps) {
+
+  const router = useRouter();
+
   // wait for TalkJS to load
   const inboxEl = useRef<HTMLDivElement | null>(null);
   const [talkLoaded, markTalkLoaded] = useState(false);

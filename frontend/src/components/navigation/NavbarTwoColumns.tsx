@@ -23,47 +23,47 @@ function NavbarTwoColumns({ logo }: INavbarProps) {
       </div>
 
       <nav>
-        <ul className="navbar flex items-center text-xl font-medium text-gray-800">
-          <li>
-            <Link href="/">Home</Link>
-          </li>
-          {isAuthenticated() ? (
-            <li>
-            <Link href="./student">Student</Link>
-            </li>
-          ) : (<div></div>)}
-          {isAuthenticated() ? (
-            <li>
-            <Link href="./tutor">Tutor</Link>
-            </li>
-          ) : (<div></div>)}
-          {isAuthenticated() ? (
-            <div>
-            <li className="w-full inline-block">
-              <Button onClick={handleToggleDropdown}>
-                My Account
-              </Button>
-              {dropdownOpen &&
-                <div className='absolute overflow-hidden'>
-                  <ul>
-                    {dropdownlist.map((item) => (
-                        <li key={item.page}
-                          className="px-4 py-2 hover:bg-primary-300 bg-primary-100 text-xs cursor-pointer w-full">
-                          <a href={item.href}>
-                          <h3>{item.page}</h3></a>
-                        </li>
-                    ))}
-                  </ul>
-                </div>
-              }
-            </li>
-            </div>
-          ) : (
-            <li>
-              <Link href="/login">Sign in</Link>
-            </li>
-          )}
-        </ul>
+      <ul className="navbar flex items-center text-xl font-medium text-gray-800">
+  <li>
+    <Link href="/">Home</Link>
+  </li>
+  
+  {isAuthenticated() && (
+    <>
+      <li>
+        <Link href="/student">Student</Link>
+      </li>
+      <li>
+        <Link href="/tutor">Tutor</Link>
+      </li>
+      <li className="w-full inline-block">
+        <Button onClick={handleToggleDropdown}>
+          My Account
+        </Button>
+        {dropdownOpen && (
+          <div className='absolute overflow-hidden'>
+            <ul>
+              {dropdownlist.map((item) => (
+                <li key={item.page}
+                  className="px-4 py-2 hover:bg-primary-300 bg-primary-100 text-xs cursor-pointer w-full">
+                  <a href={item.href}>
+                    <h3>{item.page}</h3>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </li>
+    </>
+  )}
+
+  {!isAuthenticated() && (
+    <li>
+      <Link href="/login">Sign in</Link>
+    </li>
+  )}
+</ul>
       </nav>
 
       <style jsx>

@@ -68,16 +68,6 @@ const Index = () => {
                                     </div>
                                 </Button>
                             </Link>
-                            <Link href="/tutor/wallet">
-                                <Button classProps='w-full h-full'>
-                                    <div className='flex items-center space-x-2 px-2 py-2'>
-                                        <div className='w-24 h-100'>
-                                            <img className="h-24 w-24" src={`${router.basePath}${"/assets/images/tabs/undraw_transfer_money_re_6o1h.svg"}`}/>
-                                        </div>
-                                        <span className="flex-grow text-center">View Wallet</span>
-                                    </div>
-                                </Button>
-                            </Link>
                             <Link href="/tutor/history">
                                 <Button classProps='w-full h-full'>
                                     <div className='flex items-center space-x-2 px-2 py-2'>
@@ -95,6 +85,16 @@ const Index = () => {
                                             <img className="h-24 w-24" src={`${router.basePath}${"/assets/images/tabs/undraw_audio_conversation_re_3t38.svg"}`}/>
                                         </div>
                                         <span className="flex-grow text-center">View Messages</span>
+                                    </div>
+                                </Button>
+                            </Link>
+                            <Link href="/tutor/wallet">
+                                <Button classProps='w-full h-full'>
+                                    <div className='flex items-center space-x-2 px-2 py-2'>
+                                        <div className='w-24 h-100'>
+                                            <img className="h-24 w-24" src={`${router.basePath}${"/assets/images/tabs/undraw_transfer_money_re_6o1h.svg"}`}/>
+                                        </div>
+                                        <span className="flex-grow text-center">View Wallet</span>
                                     </div>
                                 </Button>
                             </Link>
