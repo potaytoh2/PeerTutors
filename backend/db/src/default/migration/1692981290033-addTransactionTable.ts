@@ -26,28 +26,28 @@ export class addTransactionTable1692981290033 implements MigrationInterface {
             name: 'tutor_id',
             type: 'varchar',
             length: '36',
-            isUnique: true,
+            isUnique: false,
             isNullable: false,
           },
           {
             name: 'student_id',
             type: 'varchar',
             length: '36',
-            isUnique: true,
+            isUnique: false,
             isNullable: false,
           },
           {
             name: 'module_id',
             type: 'varchar',
             length: '36',
-            isUnique: true,
+            isUnique: false,
             isNullable: false,
           },
           {
             name: 'request_id',
             type: 'varchar',
             length: '36',
-            isUnique: true,
+            isUnique: false,
             isNullable: false,
           },
           {
@@ -63,7 +63,7 @@ export class addTransactionTable1692981290033 implements MigrationInterface {
           {
             name: 'verification_comments',
             type: 'varchar',
-            length: '50',
+            length: '100',
             isNullable: true,
           },
           {

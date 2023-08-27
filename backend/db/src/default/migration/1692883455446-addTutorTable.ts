@@ -31,6 +31,13 @@ export class addTutorTable1692883455446 implements MigrationInterface {
             isNullable: false,
           },
           {
+            name: 'wallet_id',
+            type: 'varchar',
+            length: '36',
+            isUnique: true,
+            isNullable: true,
+          },
+          {
             name: 'tutor_rating',
             type: 'float',
             isNullable: true,
@@ -41,6 +48,11 @@ export class addTutorTable1692883455446 implements MigrationInterface {
             enum: ['bronze', 'silver', 'gold'],
             enumName: 'tutorTier',
             isNullable: true,
+          },
+          {
+            name: 'is_verified',
+            type: 'boolean',
+            default: false,
           },
           {
             name: 'created_at',

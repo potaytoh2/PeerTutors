@@ -1,7 +1,6 @@
 import { DataSource } from 'typeorm';
 
 const db = new DataSource({
-  name: 'mysqldb',
   type: 'mysql',
   host: 'mysqldb',
   port: 3306,
