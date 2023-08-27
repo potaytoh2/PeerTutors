@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Background } from '../../../background/Background';
 import { Button } from '../../../button/Button';
 import { Section } from '../../../layout/Section';
-import { NavbarTwoColumns } from '../../../navigation/NavbarTwoColumns';
+import { NavbarTwoColumns } from '../../../components/navigation/NavbarTwoColumns';
 import { Logo } from '../../../templates/Logo';
 import { useRouter } from 'next/router';
 
@@ -11,7 +11,7 @@ import { Meta } from '../../../layout/Meta';
 import { AppConfig } from '../../../utils/AppConfig';
 import { Banner } from '../../../templates/Banner';
 import { Footer } from '../../../templates/Footer';
-import { UpcomingDetailsRow } from '../../../feature/UpcomingDetailsRow';
+import { UpcomingDetailsRow } from '../../../components/feature/UpcomingDetailsRow';
 import { useEffect, useState } from 'react';
 
 

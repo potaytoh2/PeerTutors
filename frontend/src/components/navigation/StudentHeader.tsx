@@ -1,15 +1,14 @@
-"use client"
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import React, {useState} from 'react'
 import dropdownlist from './MyAccount/dropdownlist.json';
 import {Button} from '../button/Button'
 
-type TutorHeaderProps = {
+type StudentHeaderProps = {
   logo: ReactNode;
 };
 
-function TutorHeader({logo}: TutorHeaderProps){
+function StudentHeader({logo}: StudentHeaderProps){
   const [dropdownOpen, setdropdownOpen] = useState(false);
   const handleToggleDropdown = () => {
     setdropdownOpen(prev => !prev); // Toggle the value using the previous value
@@ -75,4 +74,4 @@ function TutorHeader({logo}: TutorHeaderProps){
   )
 };
 
-export { TutorHeader };
+export { StudentHeader };
