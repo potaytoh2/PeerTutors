@@ -5,7 +5,7 @@ import dropdownlist from './MyAccount/dropdownlist.json';
 import { Button } from '@/button/Button';
 
 type INavbarProps = {
-  logo: ReactNode;
+  logo?: ReactNode;
 };
 
 function NavbarTwoColumns({ logo }: INavbarProps) {
@@ -47,12 +47,11 @@ function NavbarTwoColumns({ logo }: INavbarProps) {
                 <div className='absolute overflow-hidden'>
                   <ul>
                     {dropdownlist.map((item) => (
-                      <a href={item.href}>
                         <li key={item.page}
                           className="px-4 py-2 hover:bg-primary-300 bg-primary-100 text-xs cursor-pointer w-full">
-                          <h3>{item.page}</h3>
+                          <a href={item.href}>
+                          <h3>{item.page}</h3></a>
                         </li>
-                      </a>
                     ))}
                   </ul>
                 </div>
