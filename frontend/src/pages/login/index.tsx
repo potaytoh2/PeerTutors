@@ -48,6 +48,34 @@ const Home = () => {
             console.error('Error:', error);
           }
         };
+
+        const register= async() =>{
+            try {
+                const requestBody: ReqBody = {
+                  email: receivedUsername,
+                  password: receivedPassword,
+                };
+                const response = await fetch('/api/login', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(requestBody),
+                });
+            
+                if (response.status === 200) {
+                  const result = await response.json();
+                  setIsUser(true);
+                  console.log('User logged in:', result.data);
+                } else {
+                  const errorData = await response.json();
+                  console.log('Error:', errorData.error);
+                }
+              } catch (error) {
+                console.error('Error:', error);
+              }
+            };
+        
     const router = useRouter();
     return (  
 
@@ -97,7 +125,7 @@ const Home = () => {
                     </p>
                 </div>
                 <div className="w-full h-24 md:container md:mx-auto flex justify-center mt-8">
-                    <Button classProps="h-full w-96">
+                    <Button classProps="h-full w-96" onClick={register}>
                         Register Account
                     </Button>
                 </div>
