@@ -18,7 +18,15 @@ import { useEffect, useState } from 'react';
 
 const Index = () => {
   const router = useRouter();
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
+  const [data, setData] = useState<Array<{
+    id: number;
+    name: string;
+    description: string;
+    mod: string;
+    date: string;
+    time: string;
+  }>>([]);
 
   // async function fetchData() {
   //   const response = await fetch('your-api-endpoint'); // Replace with your actual API endpoint
@@ -26,11 +34,7 @@ const Index = () => {
   //   return data;
   // }
 
-  const [search, setSearch] = useState('');
-
-
   async function fetchData() {
-    // Simulate fetching data from an API
     const fakeApiResponse = [
       {
         id: 1,
@@ -48,15 +52,28 @@ const Index = () => {
         date: '08 Feb 2023',
         time: '3:30pm-5:30pm',
       },
-      // Add more mock data items as needed
     ];
+
+    setData(fakeApiResponse); 
+    setFilterData(fakeApiResponse);
   
-    // Simulate an asynchronous operation by wrapping the mock data in a Promise
-    return new Promise((resolve) => {
+    // return new Promise((resolve) => {
+    //   setTimeout(() => {
+    //     resolve(data);
+    //   }, 500); // Simulate a delay of 1 second
+    // });
+    return new Promise<Array<{
+      id: number;
+      name: string;
+      description: string;
+      mod: string;
+      date: string;
+      time: string;
+    }>>((resolve) => {
       setTimeout(() => {
         resolve(fakeApiResponse);
       }, 500); // Simulate a delay of 1 second
-    });
+    }); 
   }
 
   useEffect(() => {
@@ -65,6 +82,35 @@ const Index = () => {
       setData(result);
     });
   }, []); // Empty dependency array means this effect runs only once on component mount
+
+  const [filterData, setFilterData] = useState<Array<{
+    id: number;
+    name: string;
+    description: string;
+    mod: string;
+    date: string;
+    time: string;
+  }>>([]);
+  
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newSearchQuery = event.target.value;
+    setSearchQuery(newSearchQuery);
+    console.log(searchQuery);
+
+    if (newSearchQuery.trim() === '') {
+      setFilterData(data); // Show all items
+    } else {
+      const filteredItems = data.filter((item) =>
+        item.name.toLowerCase().includes(newSearchQuery.toLowerCase()) ||
+        item.mod.toLowerCase().includes(newSearchQuery.toLowerCase()) ||
+        item.date.toLowerCase().includes(newSearchQuery.toLowerCase()) ||
+        item.time.toLowerCase().includes(newSearchQuery.toLowerCase()) 
+      );
+      setFilterData(filteredItems);
+    }
+  };
 
 
   return (
@@ -92,20 +138,17 @@ const Index = () => {
             <div className=" text-xl">Find Available Sessions</div>
           </div>
           <div className='w-3/4 justify-end pt-4'>
-            {/* <Form>
-              <InputGroup className="my-3">
-                <Form.Control onChange={(e) => setSearch(e.target.value)} placeholder='Search' />
-              </InputGroup>
-            </Form> */}
             <input
               type="text"
-              placeholder="Search"
-              className="px-4 py-3 border border-gray-300 rounded-md"
+              placeholder="Search..."
+              className="px-4 py-3 border border-gray-300 rounded-md w-full"
+              value={searchQuery}
+              onChange={handleSearchChange}
             />
           </div>
         </div>
 
-          {data.map(item => (
+          {filterData.map(item => (
             <SearchDetailsRow key={item.id} name={item.name} desc={item.description} mod={item.mod} date={item.date} time={item.time}/>
           ))}
 

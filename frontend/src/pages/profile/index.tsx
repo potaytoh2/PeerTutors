@@ -1,7 +1,7 @@
 // import { Base } from '../templates/Base';
 import Link from 'next/link';
 import { Background } from '../background/Background';
-import { Button } from '../components/button/Button';
+import { Button } from '@/button/Button';
 import { Section } from '../layout/Section';
 import { NavbarTwoColumns } from '../components/navigation/NavbarTwoColumns';
 import { Logo } from '../templates/Logo';
@@ -17,8 +17,11 @@ const Profile = () => {
     const router = useRouter();
     return (  
 
-        <div className="h-screen w-screen flex">
-            
+        <div className="">
+            Nice Profile Page
+          <Button classProps='mt-8' onClick={() => router.replace("./")}>
+            Back
+          </Button>
         </div>
 
 

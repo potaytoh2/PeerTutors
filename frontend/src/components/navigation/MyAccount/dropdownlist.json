@@ -1,11 +1,10 @@
 [
     {
-        "page": "My Profile"
+        "page": "My Profile",
+        "href": "/profile"
     },
     {
-        "page": "History page"
-    },
-    {
-        "page": "Logout button"
+        "page": "Logout button",
+        "href": "/logout"
     }
 ]

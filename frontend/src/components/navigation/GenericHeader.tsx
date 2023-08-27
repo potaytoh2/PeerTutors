@@ -9,7 +9,7 @@ type TutorHeaderProps = {
   logo: ReactNode;
 };
 
-function SchoolHeader({logo}: TutorHeaderProps){
+function GenericHeader({logo}: TutorHeaderProps){
   const [dropdownOpen, setdropdownOpen] = useState(false);
   const handleToggleDropdown = () => {
     setdropdownOpen(prev => !prev); // Toggle the value using the previous value
@@ -21,6 +21,10 @@ function SchoolHeader({logo}: TutorHeaderProps){
       <div>
         <nav>
           <ul className="navbar flex items-center text-xs font-medium text-gray-800">
+            <Link className="" href="/">{logo}</Link>
+              <li>
+                  <Link href="/">Search for Tutors </Link>
+              </li>
               <li>
               <Button onClick={handleToggleDropdown}>
                 My Account
@@ -59,4 +63,4 @@ function SchoolHeader({logo}: TutorHeaderProps){
   )
 };
 
-export { SchoolHeader };
+export { GenericHeader };
