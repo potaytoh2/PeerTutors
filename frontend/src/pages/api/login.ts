@@ -5,10 +5,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method === 'POST') {
     try {
       const { email, password } = req.body as ReqBody;
+      console.log(email, password);
       const result = await processLoginServices({ email, password });
-      if (typeof result === 'string') {
+      if (result.status!=200) {
         return res.status(400).json({ error: result });
-      } else {
+      } 
+      if (result.status==200) {
         return res.status(200).json({ success: true, data: result });
       }
     } catch (error) {
