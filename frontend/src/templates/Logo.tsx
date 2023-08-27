@@ -8,11 +8,18 @@ const Logo = (props: ILogoProps) => {
   const size = props.xl ? '35' : '28';
   const fontStyle = props.xl
     ? 'font-semibold text-3xl'
-    : 'font-semibold text-xl';
+    : 'font-semibold text-3xl';
 
   return (
     <span className={`inline-flex items-center text-gray-900 ${fontStyle}`}>
-      <svg
+        <img
+        className="mr-1"
+        src="assets/images/logo.png"
+        alt={AppConfig.site_name}
+        width={size}
+        height={size}
+      />
+      {/* <svg
         className="mr-1 stroke-current text-primary-500"
         xmlns="http://www.w3.org/2000/svg"
         width={size}
@@ -28,7 +35,7 @@ const Logo = (props: ILogoProps) => {
         <rect x="9" y="8" width="6" height="12" rx="1" />
         <rect x="15" y="4" width="6" height="16" rx="1" />
         <path d="M4 20h14" />
-      </svg>
+      </svg> */}
 
       {AppConfig.site_name}
     </span>

@@ -4,9 +4,12 @@ import { Background } from '../background/Background';
 import { HeroOneButton } from '../components/hero/HeroOneButton';
 import { Section } from '../layout/Section';
 import { NavbarTwoColumns } from '../components/navigation/NavbarTwoColumns';
+import { SchoolHeader } from '../components/navigation/SchoolHeader';
 import { Logo } from './Logo';
 import { Button } from '../components/button/Button';
 import { useRouter } from 'next/router';
+import { ToggleButton } from 'react-bootstrap';
+import { GenericHeader } from '@/components/navigation/GenericHeader';
 
 const Hero = () => {
   const router = useRouter();
@@ -15,16 +18,7 @@ const Hero = () => {
   return (
     <Background color="bg-gray-100">
       <Section yPadding="py-6">
-        <NavbarTwoColumns logo={<Logo xl />}>
-          <li>
-            <Link href="https://github.com/ixartz/Next-JS-Landing-Page-Starter-Template">
-              GitHub
-            </Link>
-          </li>
-          <li>
-            <Link href="/">Sign in</Link>
-          </li>
-        </NavbarTwoColumns>
+        <NavbarTwoColumns logo={<Logo xl />} />
       </Section>
 
       {/* <div style={{ backgroundImage: `url(${bgImagePath})` }} className="bg-cover bg-center w-full h-full"> */}
