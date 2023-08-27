@@ -32,7 +32,7 @@ const Hero = () => {
             }
             description="Your Ultimate Peer-to-Peer Tutoring Solution!"
             button={
-              <Link href="student">
+              <Link href="login">
                 <Button xl>Register Now!</Button>
               </Link>
             }

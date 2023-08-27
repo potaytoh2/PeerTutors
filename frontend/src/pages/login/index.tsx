@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import { Button } from '../../components/button/Button';
 import { useRouter } from 'next/router';
-import {useState} from 'react';
 import {ReqBody} from '../../services/auth/processLogin';
 
 
@@ -79,17 +78,10 @@ const Home = () => {
                 </div>
                 <div className="flex justify-center">
                     <div className= "md:container md:mx-auto block">
-<<<<<<< HEAD
                         <h2 className="text-center text-6xl text-white">
                             LamboTutors
                         </h2>
                         <h3 className="text-center text-3xl text-white m-16">
-=======
-                        <p className="text-center text-6xl text-white">
-                            LamboTutors
-                        </p>
-                        <p className="text-center text-3xl text-white m-16">
->>>>>>> 9d4cbc66ffa56416784bb050d761da2244904bbc
                             Empowering Education,<br></br> One Connection at a Time
                         </h3>
                     </div>
@@ -107,7 +99,6 @@ const Home = () => {
                         Sign in to your account
                     </p>
                 </div>
-<<<<<<< HEAD
                 <div className="md:container md:mx-auto flex justify-center mt-12">
                     {/* <Login/> */}
 
@@ -131,22 +122,11 @@ const Home = () => {
                     className="h-1/12 w-full bg-gray-200 p-2 border-sky-300 border-t-2"
                     />
                 </form>
-=======
-                <div className="md:container md:mx-auto flex justify-center mt-16">
-                    <Login onUsernameChange={handleUsernameFromChild} onPasswordChange={handlePasswordFromChild}/>
-                </div>
-                <div className="w-full h-24 md:container md:mx-auto flex justify-center mt-12">
-                    <Link href="../tutor">  
-                        <Button classProps="h-full w-96" onClick={signInAttempt}>
-                            Login
-                        </Button>
-                    </Link>
->>>>>>> 9d4cbc66ffa56416784bb050d761da2244904bbc
                 </div>
                 </div>
                 <div className="w-full h-24 md:container md:mx-auto flex justify-center mt-12">
                     <Link href="../tutor">
-                        <Button classProps="h-20 w-96" onClick={handleLogin}>
+                        <Button classProps="h-16 w-96" onClick={handleLogin}>
                             Login
                         </Button>
                     </Link>
@@ -159,11 +139,7 @@ const Home = () => {
                     </p>
                 </div>
                 <div className="w-full h-24 md:container md:mx-auto flex justify-center mt-8">
-<<<<<<< HEAD
-                    <Button classProps="h-20 w-96">
-=======
-                    <Button classProps="h-full w-96">
->>>>>>> 9d4cbc66ffa56416784bb050d761da2244904bbc
+                    <Button classProps="h-16 w-96 btn-secondary">
                         Register Account
                     </Button>
                 </div>
