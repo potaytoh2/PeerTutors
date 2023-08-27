@@ -27,14 +27,14 @@ export class addStudentModuleTable1692972865481 implements MigrationInterface {
             name: 'student_id',
             type: 'varchar',
             length: '36',
-            isUnique: true,
+            isUnique: false,
             isNullable: false,
           },
           {
             name: 'module_id',
             type: 'varchar',
             length: '36',
-            isUnique: true,
+            isUnique: false,
             isNullable: false,
           },
           {

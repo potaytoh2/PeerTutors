@@ -1,14 +1,65 @@
 // import { Base } from '../templates/Base';
 import Link from 'next/link';
+<<<<<<< HEAD
 import { Button } from '@/components/button/Button';
 import { useRouter } from 'next/router';
 
 import Login from '@/components/textfield'
+=======
+import { Button } from '../../components/button/Button';
+import { useRouter } from 'next/router';
+import {useState} from 'react';
+import {ReqBody} from '../../services/auth/processLogin';
+
+
+import Login from '../../components/textfield'
+>>>>>>> 9d4cbc66ffa56416784bb050d761da2244904bbc
 // import { VerticalFeatures } from '../../templates/VerticalFeatures';
 import { useState } from 'react';
 import { setAuthToken, getAuthToken } from '@/utils/auth';
 
 const Home = () => {
+<<<<<<< HEAD
+=======
+    const [isUser, setIsUser] = useState(false);
+    const [receivedUsername, setReceivedUsername] = useState('');
+    const [receivedPassword, setReceivedPassword] = useState('');
+
+    const handleUsernameFromChild = (username:string) =>{
+        setReceivedUsername(username);
+    }
+
+    const handlePasswordFromChild = (password:string) =>{
+        setReceivedPassword(password);
+    }
+
+    const signInAttempt = async() =>{
+        try {
+            const requestBody: ReqBody = {
+              email: receivedUsername,
+              password: receivedPassword,
+            };
+            const response = await fetch('/api/login', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(requestBody),
+            });
+        
+            if (response.status === 200) {
+              const result = await response.json();
+              setIsUser(true);
+              console.log('User logged in:', result.data);
+            } else {
+              const errorData = await response.json();
+              console.log('Error:', errorData.error);
+            }
+          } catch (error) {
+            console.error('Error:', error);
+          }
+        };
+>>>>>>> 9d4cbc66ffa56416784bb050d761da2244904bbc
     const router = useRouter();
     const handleLogin = () => {
         // Perform authentication logic
@@ -38,10 +89,17 @@ const Home = () => {
                 </div>
                 <div className="flex justify-center">
                     <div className= "md:container md:mx-auto block">
+<<<<<<< HEAD
                         <h2 className="text-center text-6xl text-white">
                             LamboTutors
                         </h2>
                         <h3 className="text-center text-3xl text-white m-16">
+=======
+                        <p className="text-center text-6xl text-white">
+                            LamboTutors
+                        </p>
+                        <p className="text-center text-3xl text-white m-16">
+>>>>>>> 9d4cbc66ffa56416784bb050d761da2244904bbc
                             Empowering Education,<br></br> One Connection at a Time
                         </h3>
                     </div>
@@ -59,6 +117,7 @@ const Home = () => {
                         Sign in to your account
                     </p>
                 </div>
+<<<<<<< HEAD
                 <div className="md:container md:mx-auto flex justify-center mt-12">
                     {/* <Login/> */}
 
@@ -82,6 +141,17 @@ const Home = () => {
                     className="h-1/12 w-full bg-gray-200 p-2 border-sky-300 border-t-2"
                     />
                 </form>
+=======
+                <div className="md:container md:mx-auto flex justify-center mt-16">
+                    <Login onUsernameChange={handleUsernameFromChild} onPasswordChange={handlePasswordFromChild}/>
+                </div>
+                <div className="w-full h-24 md:container md:mx-auto flex justify-center mt-12">
+                    <Link href="../tutor">  
+                        <Button classProps="h-full w-96" onClick={signInAttempt}>
+                            Login
+                        </Button>
+                    </Link>
+>>>>>>> 9d4cbc66ffa56416784bb050d761da2244904bbc
                 </div>
                 </div>
                 <div className="w-full h-24 md:container md:mx-auto flex justify-center mt-12">
@@ -99,7 +169,11 @@ const Home = () => {
                     </p>
                 </div>
                 <div className="w-full h-24 md:container md:mx-auto flex justify-center mt-8">
+<<<<<<< HEAD
                     <Button classProps="h-20 w-96">
+=======
+                    <Button classProps="h-full w-96">
+>>>>>>> 9d4cbc66ffa56416784bb050d761da2244904bbc
                         Register Account
                     </Button>
                 </div>
