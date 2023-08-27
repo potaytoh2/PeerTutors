@@ -6,6 +6,7 @@ import {
   IsOptional,
   IsString,
 } from 'class-validator';
+import { BaseEntity } from 'src/crud/base.entity';
 import { StudentMod } from 'src/student-mod/student-mod.entity';
 import { Student } from 'src/student/student.entity';
 import { Transaction } from 'src/transaction/transaction.entity';
@@ -22,10 +23,7 @@ import {
 } from 'typeorm';
 
 @Entity('review')
-export class Review {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
+export class Review extends BaseEntity {
   @ApiProperty({
     example: '17e3e236-aadf-4131-833c-2d9a0031dhse2',
     description: 'transaction id',

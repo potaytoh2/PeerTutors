@@ -18,12 +18,10 @@ import {
   MaxLength,
 } from 'class-validator';
 import { User } from 'src/user/user.entity';
+import { BaseEntity } from 'src/crud/base.entity';
 
 @Entity('institute')
-export class Institute {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
+export class Institute extends BaseEntity {
   @ApiProperty({
     example: 'Singapore Management University',
     description: 'Name of institute',

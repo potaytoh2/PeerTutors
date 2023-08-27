@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsUUID, IsNotEmpty, IsOptional, MaxLength } from 'class-validator';
+import { BaseEntity } from 'src/crud/base.entity';
 import { ModuleEntity } from 'src/module/module.entity';
 import { Review } from 'src/review/review.entity';
 import { Student } from 'src/student/student.entity';
@@ -15,10 +16,7 @@ import {
 } from 'typeorm';
 
 @Entity('transaction')
-export class Transaction {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
+export class Transaction extends BaseEntity {
   @ApiProperty({
     example: '17e3e236-aadf-4131-833c-2d9a0031dhse2',
     description: 'student id',

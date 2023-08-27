@@ -1,10 +1,6 @@
-import { PickType } from '@nestjs/swagger';
 import { BaseStudentModDto } from './base-student-mod.dto';
+import { PartialType, OmitType } from '@nestjs/swagger';
 
-export class UpdateStudentModDto extends PickType(BaseStudentModDto, [
-  'id',
-  'student_id',
-  'module_id',
-  'created_by',
-  'updated_by',
-] as const) {}
+export class UpdateStudentModDto extends PartialType(
+  OmitType(BaseStudentModDto, ['id', 'created_by', 'updated_by'] as const),
+) {}
