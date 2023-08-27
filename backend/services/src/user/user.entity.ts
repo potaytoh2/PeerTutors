@@ -7,6 +7,7 @@ import {
   IsUUID,
   MaxLength,
 } from 'class-validator';
+import { BaseEntity } from 'src/crud/base.entity';
 import { InstituteAdmin } from 'src/institute-admin/institute-admin.entity';
 import { Institute } from 'src/institute/institute.entity';
 import { Student } from 'src/student/student.entity';
@@ -22,18 +23,14 @@ import {
 import { UserAccountType, UserGender } from './user.enum';
 
 @Entity('user')
-export class User {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
+export class User extends BaseEntity {
   @ApiProperty({
-    example: 'Ryan Ang',
-    description: 'Name of user',
+    example: 'John',
+    description: 'First name of actor representative',
   })
   @Column()
   @IsNotEmpty()
   @IsString()
-  @MaxLength(50)
   name: string;
 
   @ApiProperty({
@@ -93,17 +90,17 @@ export class User {
 
   @OneToOne(() => Student)
   @JoinColumn({ referencedColumnName: 'user_id', name: 'id' })
-  @IsNotEmpty()
+  @IsOptional()
   student: Student;
 
   @OneToOne(() => Tutor)
   @JoinColumn({ referencedColumnName: 'user_id', name: 'id' })
-  @IsNotEmpty()
+  @IsOptional()
   tutor: Tutor;
 
   @OneToOne(() => InstituteAdmin)
   @JoinColumn({ referencedColumnName: 'user_id', name: 'id' })
-  @IsNotEmpty()
+  @IsOptional()
   instituteAdmin: InstituteAdmin;
 
   @ManyToOne(() => Institute, (institute) => institute.user)

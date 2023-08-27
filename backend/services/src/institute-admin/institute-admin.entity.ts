@@ -1,13 +1,11 @@
-import { ApiProperty } from "@nestjs/swagger";
-import { IsUUID, IsNotEmpty, IsOptional } from "class-validator";
-import { User } from "src/user/user.entity";
-import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn } from "typeorm";
+import { ApiProperty } from '@nestjs/swagger';
+import { IsUUID, IsNotEmpty, IsOptional } from 'class-validator';
+import { BaseEntity } from 'src/crud/base.entity';
+import { User } from 'src/user/user.entity';
+import { Entity, Column, OneToOne, JoinColumn } from 'typeorm';
 
 @Entity('institute-admin')
-export class InstituteAdmin {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
+export class InstituteAdmin extends BaseEntity {
   @ApiProperty({
     example: '17e3e236-aadf-4131-833c-2d9a0031dhse2',
     description: 'user_id',
@@ -16,7 +14,6 @@ export class InstituteAdmin {
   @IsNotEmpty()
   @Column()
   user_id: string;
-
 
   @ApiProperty({
     example: 'ce27b144-4d2f-49cd-99ee-0616140540b1',
@@ -38,6 +35,6 @@ export class InstituteAdmin {
 
   @OneToOne(() => User)
   @JoinColumn({ name: 'id' })
-  @IsNotEmpty()
+  @IsOptional()
   user: User;
 }

@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsUUID, IsNotEmpty, IsOptional } from 'class-validator';
+import { BaseEntity } from 'src/crud/base.entity';
 import { ModuleEntity } from 'src/module/module.entity';
 import { Student } from 'src/student/student.entity';
 import { Tutor } from 'src/tutor/tutor.entity';
@@ -13,10 +14,7 @@ import {
 } from 'typeorm';
 
 @Entity('tutor-request')
-export class TutorRequest {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
+export class TutorRequest extends BaseEntity {
   @ApiProperty({
     example: '17e3e236-aadf-4131-833c-2d9a0031dhse2',
     description: 'tutor id',

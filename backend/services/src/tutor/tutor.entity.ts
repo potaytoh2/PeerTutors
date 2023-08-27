@@ -21,12 +21,10 @@ import { TutorRequest } from 'src/tutor-request/tutor-request.entity';
 import { Transaction } from 'src/transaction/transaction.entity';
 import { Wallet } from 'src/wallet/wallet.entity';
 import { Review } from 'src/review/review.entity';
+import { BaseEntity } from 'src/crud/base.entity';
 
 @Entity('tutor')
-export class Tutor {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
+export class Tutor extends BaseEntity {
   @ApiProperty({
     example: '17e3e236-aadf-4131-833c-2d9a0031dhse2',
     description: 'user_id',
@@ -91,12 +89,12 @@ export class Tutor {
 
   @OneToOne(() => User)
   @JoinColumn({ name: 'id' })
-  @IsNotEmpty()
+  @IsOptional()
   user: User;
 
   @OneToOne(() => Wallet)
   @JoinColumn({ name: 'id' })
-  @IsNotEmpty()
+  @IsOptional()
   wallet: Wallet;
 
   @OneToMany(() => TutorRequest, (tutorRequest) => tutorRequest.tutor)

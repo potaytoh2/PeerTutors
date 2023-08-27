@@ -11,12 +11,10 @@ import { StudentMod } from 'src/student-mod/student-mod.entity';
 import { TutorRequest } from 'src/tutor-request/tutor-request.entity';
 import { Transaction } from 'src/transaction/transaction.entity';
 import { TutorMod } from 'src/tutor-mod/tutor-mod.entity';
+import { BaseEntity } from 'src/crud/base.entity';
 
 @Entity('module')
-export class ModuleEntity {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
+export class ModuleEntity extends BaseEntity {
   @ApiProperty({
     example: 'IS111',
     description: 'Module code',

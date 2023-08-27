@@ -4,7 +4,6 @@ import { BaseWalletTransactionDto } from './base-wallet-transaction.dto';
 export class CreateWalletTransactionDto extends PickType(
   BaseWalletTransactionDto,
   [
-    'id',
     'transaction_id',
     'wallet_id',
     'amount',

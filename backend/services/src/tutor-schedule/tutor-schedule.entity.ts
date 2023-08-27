@@ -8,12 +8,10 @@ import {
 } from 'typeorm';
 import { IsNotEmpty, IsOptional, IsUUID } from 'class-validator';
 import { Tutor } from 'src/tutor/tutor.entity';
+import { BaseEntity } from 'src/crud/base.entity';
 
 @Entity('tutor-schedule')
-export class TutorSchedule {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
+export class TutorSchedule extends BaseEntity {
   @ApiProperty({
     example: '17e3e236-aadf-4131-833c-2d9a0031dhse2',
     description: 'tutor id',

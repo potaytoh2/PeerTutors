@@ -7,25 +7,13 @@ import {
   IsUUID,
   MaxLength,
 } from 'class-validator';
-import { Institute } from 'src/institute/institute.entity';
-import { Student } from 'src/student/student.entity';
+import { BaseEntity } from 'src/crud/base.entity';
 import { Tutor } from 'src/tutor/tutor.entity';
 import { WalletTransaction } from 'src/wallet-transaction/wallet-transaction.entity';
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  OneToMany,
-  OneToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, JoinColumn, OneToMany, OneToOne } from 'typeorm';
 
 @Entity('wallet')
-export class Wallet {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
-
+export class Wallet extends BaseEntity {
   @ApiProperty({
     example: '17e3e236-aadf-4131-833c-2d9a0031dhsc9',
     description: 'tutor_id',
@@ -63,7 +51,7 @@ export class Wallet {
 
   @OneToOne(() => Tutor)
   @JoinColumn({ referencedColumnName: 'wallet_id', name: 'id' })
-  @IsNotEmpty()
+  @IsOptional()
   tutor: Tutor;
 
   @OneToMany(
