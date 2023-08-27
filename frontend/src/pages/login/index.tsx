@@ -1,11 +1,5 @@
 // import { Base } from '../templates/Base';
 import Link from 'next/link';
-<<<<<<< HEAD
-import { Button } from '@/components/button/Button';
-import { useRouter } from 'next/router';
-
-import Login from '@/components/textfield'
-=======
 import { Button } from '../../components/button/Button';
 import { useRouter } from 'next/router';
 import {useState} from 'react';
@@ -13,14 +7,11 @@ import {ReqBody} from '../../services/auth/processLogin';
 
 
 import Login from '../../components/textfield'
->>>>>>> 9d4cbc66ffa56416784bb050d761da2244904bbc
 // import { VerticalFeatures } from '../../templates/VerticalFeatures';
 import { useState } from 'react';
 import { setAuthToken, getAuthToken } from '@/utils/auth';
 
 const Home = () => {
-<<<<<<< HEAD
-=======
     const [isUser, setIsUser] = useState(false);
     const [receivedUsername, setReceivedUsername] = useState('');
     const [receivedPassword, setReceivedPassword] = useState('');
@@ -59,7 +50,6 @@ const Home = () => {
             console.error('Error:', error);
           }
         };
->>>>>>> 9d4cbc66ffa56416784bb050d761da2244904bbc
     const router = useRouter();
     const handleLogin = () => {
         // Perform authentication logic
