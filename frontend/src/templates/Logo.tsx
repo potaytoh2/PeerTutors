@@ -1,4 +1,5 @@
 import { AppConfig } from '../utils/AppConfig';
+import { useRouter } from 'next/router';
 
 type ILogoProps = {
   xl?: boolean;
@@ -10,11 +11,12 @@ const Logo = (props: ILogoProps) => {
     ? 'font-semibold text-3xl'
     : 'font-semibold text-3xl';
 
+    const router = useRouter();
   return (
     <span className={`inline-flex items-center text-gray-900 ${fontStyle}`}>
         <img
         className="mr-1"
-        src="assets/images/logo.png"
+        src={`${router.basePath}/assets/images/logo.png`} 
         alt={AppConfig.site_name}
         width={size}
         height={size}

@@ -13,7 +13,7 @@ export async function processLoginServices({
   password,
 }: ReqBody): Promise<any> {
   let errorMessage;
-  const hashedPassword = hashPassword(password);
+  const hashedPassword = await hashPassword(password);
   try {
     // Check if email is valid
     try {
@@ -21,9 +21,9 @@ export async function processLoginServices({
     } catch (error) {
       errorMessage = "Invalid email address.";
     }
-
+console.log(email, hashedPassword)
     const url = `${BaseUrlHost}/auth/login`;
-    const payload = { email, hashedPassword };
+    const payload = { "email":email, "password":hashedPassword };
     const response = await axios.post(url, payload);
     if (response.status !== 201) {
       errorMessage = "Unable to create user. Please try again in a while.";
