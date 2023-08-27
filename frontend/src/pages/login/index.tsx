@@ -28,7 +28,7 @@ const Home = () => {
               email: receivedUsername,
               password: receivedPassword,
             };
-            const response = await fetch('/api/login', {
+            const response = await fetch('../api/login', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ const Home = () => {
                   email: receivedUsername,
                   password: receivedPassword,
                 };
-                const response = await fetch('/api/login', {
+                const response = await fetch('../api/signup', {
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json',
