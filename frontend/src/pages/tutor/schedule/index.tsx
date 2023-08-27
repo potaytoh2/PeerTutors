@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Background } from '../../../background/Background';
 import { Button } from '../../../button/Button';
 import { Section } from '../../../layout/Section';
-import { NavbarTwoColumns } from '../../../navigation/NavbarTwoColumns';
+import { NavbarTwoColumns } from '../../../components/navigation/NavbarTwoColumns';
 import { Logo } from '../../../templates/Logo';
 import { useRouter } from 'next/router';
 
@@ -12,7 +12,7 @@ import { AppConfig } from '../../../utils/AppConfig';
 import { Banner } from '../../../templates/Banner';
 import { Footer } from '../../../templates/Footer';
 // import { VerticalFeatures } from '../../templates/VerticalFeatures';
-import { CustomCalendar } from '../../../feature/CustomCalendar';
+import { CustomCalendar } from '../../../components/feature/CustomCalendar';
 
 
 const Index = () => {
