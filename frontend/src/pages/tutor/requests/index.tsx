@@ -31,7 +31,7 @@ const Index = () => {
     const fakeApiResponse = [
       {
         id: 1,
-        name: 'Axel Wong',
+        name: 'Jimmy Neutron',
         description: 'Description for Item 1',
         mod: 'CS203 CSD',
         date: '28 Aug 2023',

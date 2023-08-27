@@ -46,7 +46,7 @@ const Index = () => {
         <div className='border rounded border-2 p-4'>
           <div className='flex'>
             <div className='w-2/3'>
-              <h2 className="text-4xl font-bold text-gray-900">10 Jan 2023
+              <h2 className="text-4xl font-bold text-gray-900">28 Aug 2023
               </h2>
               <h2 className="text-3xl font-bold pb-4">5:30pm-7:30pm</h2>
               <h2 className='pt-2'>Location: Aperium Mall, Serangoon North Ave 5</h2>

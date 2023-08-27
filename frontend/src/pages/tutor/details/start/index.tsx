@@ -47,7 +47,7 @@ const SessionStart = () => {
                 </div>
             </div>
             <div className='w-1/3 text-right'>
-              <h2 className="text-4xl font-bold text-gray-900">10 Jan 2023
+              <h2 className="text-4xl font-bold text-gray-900">28 Aug 2023
               </h2>
               <h2 className="text-xl font-bold pb-4">5:30pm-7:30pm</h2>
             </div>

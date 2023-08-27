@@ -27,7 +27,7 @@ const RequestDetailsRow = (props: DetailsRowProps) => {
   };
 
   const handleSubmit = () => {
-    window.alert('In production');
+    window.alert('Accepted appointment');
   }
 
   const featureClass = className(
