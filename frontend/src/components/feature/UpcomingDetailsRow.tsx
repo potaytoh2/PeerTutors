@@ -61,7 +61,6 @@ const UpcomingDetailsRow = (props: DetailsRowProps) => {
   return (
     <div>
     {/* <Link href="" onClick={gotoDetails}> */}
-    <Link href={{ pathname: './details', query: { id: props.name } }} passHref>
     <div className={featureClass}>
         <div className="w-full text-center sm:w-2/6 sm:px-6 py-4">
           <h3 className="text-3xl font-semibold text-gray-900">{props.date}</h3>
@@ -79,20 +78,24 @@ const UpcomingDetailsRow = (props: DetailsRowProps) => {
 
         <div className="w-full p-6 sm:w-1/6">
           <div className='flex space-x-4'>
-              {/* <Button onClick={handleSubmit}>
-                Accept
-              </Button>
-              <Button classProps='btn-secondary' onClick={handleReject}>
+            
+    <Link href={{ pathname: './details', query: { id: props.name } }} passHref>
+              <Button>
+                View
+              </Button></Link>
+              {/* <Button classProps='btn-secondary' onClick={handleReject}>
                 Reject
               </Button> */}
-              <Button classProps='btn-secondary' onClick={handleChat}>
-                Chat
-              </Button>
+              <Link href='../../student/message'>
+                <Button classProps='btn-secondary'>
+                  Chat
+                </Button>
+              </Link>
+
             </div>
           {/* <img src={`${router.basePath}${props.image}`} alt={props.imageAlt} /> */}
         </div>
     </div>
-    </Link>
     </div>
   );
 };

@@ -26,6 +26,7 @@ const CustomCalendar = (props: customCalendarProps) => {
   };
 
   const handleSubmit = () => {
+    window.alert("Schedule registered!");
     console.log(myEvents);
   }
 

@@ -1,6 +1,7 @@
 import className from 'classnames';
 import { useRouter } from 'next/router';
 import { Button } from '../button/Button';
+import Link from 'next/link';
 
 type DetailsRowProps = {
   name: string;
@@ -22,11 +23,11 @@ const RequestDetailsRow = (props: DetailsRowProps) => {
 
   const handleReject = () => {
     // setEvents([]);
-    window.alert('Rejected with ...');
+    window.alert('Cancelled appointment');
   };
 
   const handleSubmit = () => {
-    window.alert('Accepted with ...');
+    window.alert('In production');
   }
 
   const featureClass = className(
@@ -64,11 +65,13 @@ const RequestDetailsRow = (props: DetailsRowProps) => {
             Accept
           </Button>
           <Button classProps='btn-secondary' onClick={handleReject}>
-            Reject
+            Cancel
           </Button>
-          <Button classProps='btn-secondary' onClick={handleChat}>
+          <Link href='../../student/message'>
+          <Button classProps='btn-secondary'>
             Chat
           </Button>
+          </Link>
         </div>
         {/* <img src={`${router.basePath}${props.image}`} alt={props.imageAlt} /> */}
       </div>

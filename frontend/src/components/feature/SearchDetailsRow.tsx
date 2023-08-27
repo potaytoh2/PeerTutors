@@ -1,6 +1,8 @@
 import className from 'classnames';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Button } from '../button/Button';
+import {useState} from 'react';
 
 type DetailsRowProps = {
   name: string;
@@ -14,6 +16,7 @@ type DetailsRowProps = {
 };
 
 const SearchDetailsRow = (props: DetailsRowProps) => {
+  const [hasApplied, setHasApplied] = useState(false);
 
   const handleChat = () => {
     // setEvents([]);
@@ -21,7 +24,12 @@ const SearchDetailsRow = (props: DetailsRowProps) => {
   };
 
   const handleSubmit = () => {
-    window.alert('Accepted with ...');
+    if(hasApplied){
+      window.alert('Application has already been sent!')
+    }else{
+      window.alert('Application Sent!');
+      setHasApplied(true);
+    }
   }
 
   const featureClass = className(
@@ -58,9 +66,11 @@ const SearchDetailsRow = (props: DetailsRowProps) => {
           <Button onClick={handleSubmit}>
             Apply
           </Button>
-          <Button classProps='btn-secondary' onClick={handleChat}>
-            Chat
-          </Button>
+          <Link href='../../student/message'>
+            <Button classProps='btn-secondary'>
+              Chat
+            </Button>
+          </Link>
         </div>
         {/* <img src={`${router.basePath}${props.image}`} alt={props.imageAlt} /> */}
       </div>

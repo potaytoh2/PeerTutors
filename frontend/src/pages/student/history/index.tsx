@@ -30,18 +30,18 @@ const Index = () => {
     const fakeApiResponse = [
       {
         id: 1,
-        name: 'Bob Marley',
+        name: 'Jay Chou',
         description: 'Description for Item 1',
-        mod: 'CS203 CSD',
-        date: '10 Jan 2023',
-        time: '5:30pm-7:30pm',
+        mod: 'CS201 DSA',
+        date: '5 Aug 2023',
+        time: '2:30pm-3:30pm',
       },
       {
         id: 2,
-        name: 'John Doe',
+        name: 'Travis Scott',
         description: 'Description for Item 2',
-        mod: 'IS112 DBMS',
-        date: '08 Feb 2023',
+        mod: 'IS442 OOP',
+        date: '6 Aug 2023',
         time: '3:30pm-5:30pm',
       },
       // Add more mock data items as needed
