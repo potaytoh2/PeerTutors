@@ -35,21 +35,6 @@ export class BaseCrudService<T> extends TypeOrmCrudService<T> {
 
     return savedEntity;
   }
-
-  // Fix a bug related to field aliases in nestjsx/crud
-  protected getFieldWithAlias(field: string, sort = false) {
-    const columns = field.split('.');
-
-    switch (columns.length) {
-      case 1:
-        return this.alias + '.' + field;
-      case 2:
-        return field;
-      default:
-        return columns.slice(columns.length - 2, columns.length).join('.');
-    }
-  }
-
   // Save an entity
   async save(data) {
     return this.repo.save(data);
