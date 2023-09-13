@@ -12,8 +12,7 @@ services:
     build:
       context: ./../db
       dockerfile: ./Dockerfile
-    # uncomment below if container need to keep alive but need to `npm run typeorm:run` manually
-    # command: "tail -f /dev/null"
+
     volumes:
       - ./../db/src:/app/src
       - ./../db/package.json:/app/package.json
