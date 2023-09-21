@@ -6,7 +6,7 @@ import { InstituteService } from './institute.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Institute])],
-  controllers: [InstituteController],
+  controllers: [InstituteCfontroller],
   providers: [InstituteService],
 })
 export class InstituteModule {}
