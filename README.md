@@ -1,5 +1,9 @@
 # PeerTutors
-Ellipsis Tech Series 2023
+
+Ellipsis Tech Series 2023 Hackathon
+
+This project won us the Ellipsis Most Innovative Solution for its innovative business model and excellent implementation.
+
 ## Our Mission
 At the heart of our solution lies a mission to revolutionize the way education is imparted and received. We're not just building a platform; we're shaping a movement. Our goal is to synergize the collective strength of corporations, the expertise of educational institutions, and the passion of students to create a dynamic and impactful learning ecosystem.
 
@@ -19,3 +23,9 @@ To run frontend service,
 1) `cd frontend`
 2) `npm install`
 3) `npm run dev`
+
+### Usage
+Walkthrough of the web application
+
+https://github.com/potaytoh2/PeerTutors/assets/86103157/191ab2e7-cda6-4e76-8495-09e8e00fbbed
+
